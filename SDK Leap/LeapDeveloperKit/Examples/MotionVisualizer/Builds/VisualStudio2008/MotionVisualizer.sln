@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C++ Express 2008
+Project("{740730E9-3C71-7FC1-8FE3-8CB3D322EA4F}") = "MotionVisualizer", "MotionVisualizer.vcproj", "{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Debug|Win32.Build.0 = Debug|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Release|Win32.ActiveCfg = Release|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
