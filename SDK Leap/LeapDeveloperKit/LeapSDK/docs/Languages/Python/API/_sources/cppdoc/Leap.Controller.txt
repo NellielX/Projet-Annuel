@@ -1,5 +1,0 @@
-Leap.Controller
-===============
-
-..doxygenclass:: Leap::Controller
- :members:

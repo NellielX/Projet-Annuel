@@ -1,7 +1,0 @@
-Leap.Screen
-===========
-
-.. currentmodule:: Leap
-
-.. class:: Screen
-
