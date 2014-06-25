@@ -3,7 +3,8 @@ import java.io.IOException;
 
 import javax.swing.SwingUtilities;
 
-import vue.VuePrincipale;
+import vue_principale.VuePrincipale;
+import vue_principale.Vue_principale;
 
 public class EveryThingMain {
 
@@ -12,7 +13,7 @@ public class EveryThingMain {
 		Runnable r = new Runnable() {
 			public void run(){
 				try {
-					new VuePrincipale();
+					new Vue_principale();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
