@@ -15,6 +15,8 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JButton;
 
+import vue.VueOuvrirUnModele;
+import vue.VueParametres;
 import vue.VueChoixNouveauModele;
 import vue.VueInformations;
 
@@ -117,7 +119,8 @@ public class Vue_principale extends JPanel{
 		btnNewForme.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewForme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		          new VueChoixNouveauModele();
+				VueChoixNouveauModele newModele = new VueChoixNouveauModele(); 
+				newModele.setVisible(true); 
 			}
 
 		});
@@ -137,7 +140,8 @@ public class Vue_principale extends JPanel{
 		btnOuvrirModele.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnOuvrirModele.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VueOuvrirUnModele ouvrirModele = new VueOuvrirUnModele(); 
+				ouvrirModele.setVisible(true); 
 			}
 		});
 		GridBagConstraints gbc_btnOuvrirModele = new GridBagConstraints();
@@ -156,7 +160,8 @@ public class Vue_principale extends JPanel{
 		btnParametres.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnParametres.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VueParametres parametre = new VueParametres(); 
+				parametre.setVisible(true); 
 			}
 		});
 		GridBagConstraints gbc_btnParametres = new GridBagConstraints();

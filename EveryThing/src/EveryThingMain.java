@@ -11,7 +11,8 @@ public class EveryThingMain {
 		// TODO Auto-generated method stub
 		Runnable r = new Runnable() {
 			public void run(){
-				new Vue_principale();
+				Vue_principale vuePrincipale = new Vue_principale(); 
+				vuePrincipale.setVisible(true);
 			}
 		};
 		EventQueue.invokeLater(r);

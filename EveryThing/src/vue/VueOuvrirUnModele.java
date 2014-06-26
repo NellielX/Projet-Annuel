@@ -1,12 +1,15 @@
 package vue;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
-public class VueOuvrirUnModele {
+public class VueOuvrirUnModele extends JFrame {
 
-	private JFrame frame;
+	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
@@ -15,8 +18,8 @@ public class VueOuvrirUnModele {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VueOuvrirUnModele window = new VueOuvrirUnModele();
-					window.frame.setVisible(true);
+					VueOuvrirUnModele frame = new VueOuvrirUnModele();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -25,19 +28,16 @@ public class VueOuvrirUnModele {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public VueOuvrirUnModele() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 953, 615);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setTitle("Everything in your Hands");
+		setBounds(100, 100, 953, 615);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
 	}
 
 }
