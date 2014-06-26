@@ -16,6 +16,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 
 import vue.VueChoixNouveauModele;
+import vue.VueInformations;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -25,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Color;
+
 import javax.swing.ImageIcon;
 
 public class Vue_principale extends JPanel{
@@ -91,9 +93,11 @@ public class Vue_principale extends JPanel{
 		btnTest.setBackground(new Color(255, 255, 255));
 		btnTest.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				VueInformations variable = new VueInformations(); 
+				variable.setVisible(true); 
 			}
 		});
-		btnTest.setIcon(new ImageIcon("C:\\Users\\Ga\u00EBtan\\Documents\\GitHub\\Projet-Annuel\\EveryThing\\images\\logo.png"));
+		btnTest.setIcon(new ImageIcon("..\\EveryThing\\images\\logo.png"));
 		panel_titre.add(btnTest);
 		
 		//Jpanel des boutons
