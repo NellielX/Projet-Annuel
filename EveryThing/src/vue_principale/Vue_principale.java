@@ -2,22 +2,38 @@ package vue_principale;
 
 import java.awt.EventQueue;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
 import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
+
 import javax.swing.JButton;
+
+import vue.VueChoixNouveauModele;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 
-public class Vue_principale {
+public class Vue_principale extends JPanel{
 
-	private JFrame frame;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frmEverythingInYour;
 
 	/**
 	 * Launch the application.
@@ -27,7 +43,7 @@ public class Vue_principale {
 			public void run() {
 				try {
 					Vue_principale window = new Vue_principale();
-					window.frame.setVisible(true);
+					window.frmEverythingInYour.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,32 +57,55 @@ public class Vue_principale {
 	public Vue_principale() {
 		initialize();
 	}
+	
+
+	  public void paintComponent(Graphics g){
+	    try {
+	      Image img = ImageIO.read(new File("../images/logo.png"));
+	      g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), this);
+	    } catch (IOException e) {
+	      e.printStackTrace();
+	    }                
+	  }               
+		
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 954, 610);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmEverythingInYour = new JFrame();
+		frmEverythingInYour.setTitle("Everything in your Hands");
+		frmEverythingInYour.setBounds(100, 100, 953, 615);
+		frmEverythingInYour.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-		flowLayout.setVgap(60);
-		flowLayout.setHgap(20);
-		panel.setBackground(SystemColor.menu);
-		panel.setForeground(SystemColor.desktop);
-		frame.getContentPane().add(panel, BorderLayout.NORTH);
+		//Jpanel de la bannière
+		JPanel panel_titre = new JPanel();
+		FlowLayout fl_panel_titre = (FlowLayout) panel_titre.getLayout();
+		fl_panel_titre.setHgap(20);
+		panel_titre.setBackground(new Color(255, 255, 255));
+		panel_titre.setForeground(new Color(0, 0, 0));     
+		frmEverythingInYour.getContentPane().add(panel_titre, BorderLayout.NORTH);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(SystemColor.menu);
-		frame.getContentPane().add(panel_1, BorderLayout.CENTER);
-		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel_1.setLayout(gbl_panel_1);
+		JButton btnTest = new JButton("");
+		btnTest.setForeground(new Color(255, 255, 255));
+		btnTest.setBackground(new Color(255, 255, 255));
+		btnTest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnTest.setIcon(new ImageIcon("C:\\Users\\Ga\u00EBtan\\Documents\\GitHub\\Projet-Annuel\\EveryThing\\images\\logo.png"));
+		panel_titre.add(btnTest);
+		
+		//Jpanel des boutons
+		JPanel panel_bouton = new JPanel();
+		panel_bouton.setBackground(SystemColor.menu);
+		frmEverythingInYour.getContentPane().add(panel_bouton, BorderLayout.CENTER);
+		GridBagLayout gbl_panel_bouton = new GridBagLayout();
+		gbl_panel_bouton.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_bouton.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel_bouton.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_bouton.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		panel_bouton.setLayout(gbl_panel_bouton);
 		
 		//Liste des boutons
 		//Crée une nouvelle forme
@@ -74,8 +113,9 @@ public class Vue_principale {
 		btnNewForme.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewForme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+		          new VueChoixNouveauModele();
 			}
+
 		});
 		GridBagConstraints gbc_btnNewForme = new GridBagConstraints();
 		gbc_btnNewForme.weighty = 10.0;
@@ -86,7 +126,7 @@ public class Vue_principale {
 		gbc_btnNewForme.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewForme.gridx = 5;
 		gbc_btnNewForme.gridy = 2;
-		panel_1.add(btnNewForme, gbc_btnNewForme);
+		panel_bouton.add(btnNewForme, gbc_btnNewForme);
 		
 		//Bouton ouvrir un modèle
 		JButton btnOuvrirModele = new JButton("Ouvrir un mod\u00E8le");
@@ -105,7 +145,7 @@ public class Vue_principale {
 		gbc_btnOuvrirModele.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOuvrirModele.gridx = 20;
 		gbc_btnOuvrirModele.gridy = 2;
-		panel_1.add(btnOuvrirModele, gbc_btnOuvrirModele);
+		panel_bouton.add(btnOuvrirModele, gbc_btnOuvrirModele);
 		
 		//Bouton paramètre
 		JButton btnParametres = new JButton("Param\u00E8tres");
@@ -124,7 +164,7 @@ public class Vue_principale {
 		gbc_btnParametres.insets = new Insets(0, 0, 5, 5);
 		gbc_btnParametres.gridx = 5;
 		gbc_btnParametres.gridy = 9;
-		panel_1.add(btnParametres, gbc_btnParametres);
+		panel_bouton.add(btnParametres, gbc_btnParametres);
 		
 		//Bouton exit
 		JButton btnExit = new JButton("Exit");
@@ -143,7 +183,7 @@ public class Vue_principale {
 		gbc_btnExit.fill = GridBagConstraints.BOTH;
 		gbc_btnExit.gridx = 20;
 		gbc_btnExit.gridy = 9;
-		panel_1.add(btnExit, gbc_btnExit);
+		panel_bouton.add(btnExit, gbc_btnExit);
 	}
 
 }
