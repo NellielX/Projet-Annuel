@@ -40,7 +40,7 @@ public class VueChoixNouveauModele extends JFrame {
 	 */
 	public VueChoixNouveauModele() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setTitle("Everything in your Hands");
+		setTitle("Everything in your Hands - Choix du nouveau mod\u00E8le");
 		setBounds(100, 100, 953, 615);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

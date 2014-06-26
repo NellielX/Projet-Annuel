@@ -42,7 +42,7 @@ public class VueInformations extends JFrame {
 	 * Create the frame.
 	 */
 	public VueInformations() {
-		setTitle("Everything in your Hands");
+		setTitle("Everything in your Hands - Informations");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 953, 615);
 		contentPane = new JPanel();

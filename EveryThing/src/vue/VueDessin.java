@@ -34,7 +34,7 @@ public class VueDessin extends JFrame {
 	 */
 	public VueDessin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setTitle("Everything in your Hands");
+		setTitle("Everything in your Hands - Dessin");
 		setBounds(100, 100, 953, 615);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
