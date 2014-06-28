@@ -96,7 +96,8 @@ public class VueChoixNouveauModele extends JFrame {
 		btnNewCube.setIcon(new ImageIcon("..\\Everything\\images\\cube2.png"));
 		btnNewCube.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VueDessin newDessin = new VueDessin(); 
+				newDessin.setVisible(true); 
 			}
 		});
 		GridBagConstraints gbc_btnNewCube = new GridBagConstraints();
@@ -133,7 +134,8 @@ public class VueChoixNouveauModele extends JFrame {
 		btnNewSphere.setIcon(new ImageIcon("..\\Everything\\images\\sphere2.png"));
 		btnNewSphere.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				VueDessin newDessin = new VueDessin(); 
+				newDessin.setVisible(true); 
 			}
 		});
 		GridBagConstraints gbc_btnNewSphere = new GridBagConstraints();
