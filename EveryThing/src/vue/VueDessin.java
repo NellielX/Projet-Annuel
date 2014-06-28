@@ -68,6 +68,7 @@ public class VueDessin extends JFrame {
 		gbl_panel_outil.rowWeights = new double[]{0.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_outil.setLayout(gbl_panel_outil);
 		
+		//Libelle : Action sur les formes
 		JLabel lblActionSurLes = new JLabel("Action sur les formes");
 		lblActionSurLes.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblActionSurLes.setForeground(Color.WHITE);
@@ -77,20 +78,22 @@ public class VueDessin extends JFrame {
 		gbc_lblActionSurLes.gridy = 1;
 		panel_outil.add(lblActionSurLes, gbc_lblActionSurLes);
 		
-		JPanel panel_bouton1 = new JPanel();
-		GridBagConstraints gbc_panel_bouton1 = new GridBagConstraints();
-		gbc_panel_bouton1.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_bouton1.fill = GridBagConstraints.BOTH;
-		gbc_panel_bouton1.gridx = 2;
-		gbc_panel_bouton1.gridy = 2;
-		panel_outil.add(panel_bouton1, gbc_panel_bouton1);
+		//Jpanel pour bouton ajouter
+		JPanel panel_ajouter = new JPanel();
+		GridBagConstraints gbc_panel_ajouter = new GridBagConstraints();
+		gbc_panel_ajouter.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_ajouter.fill = GridBagConstraints.BOTH;
+		gbc_panel_ajouter.gridx = 2;
+		gbc_panel_ajouter.gridy = 2;
+		panel_outil.add(panel_ajouter, gbc_panel_ajouter);
 		GridBagLayout gbl_panel_bouton1 = new GridBagLayout();
 		gbl_panel_bouton1.columnWidths = new int[] {0, 0};
 		gbl_panel_bouton1.rowHeights = new int[]{0, 0};
 		gbl_panel_bouton1.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel_bouton1.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		panel_bouton1.setLayout(gbl_panel_bouton1);
+		panel_ajouter.setLayout(gbl_panel_bouton1);
 		
+		//Bouton ajouter
 		JButton btnAjouterForme = new JButton("Ajouter");
 		btnAjouterForme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -103,22 +106,24 @@ public class VueDessin extends JFrame {
 		gbc_btnAjouterForme.weightx = 1.0;
 		gbc_btnAjouterForme.gridx = 0;
 		gbc_btnAjouterForme.gridy = 0;
-		panel_bouton1.add(btnAjouterForme, gbc_btnAjouterForme);
+		panel_ajouter.add(btnAjouterForme, gbc_btnAjouterForme);
 		
-		JPanel panel_bouton2 = new JPanel();
-		GridBagConstraints gbc_panel_bouton2 = new GridBagConstraints();
-		gbc_panel_bouton2.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_bouton2.fill = GridBagConstraints.BOTH;
-		gbc_panel_bouton2.gridx = 2;
-		gbc_panel_bouton2.gridy = 3;
-		panel_outil.add(panel_bouton2, gbc_panel_bouton2);
+		//Jpanel pour bouton supprimer
+		JPanel panel_supprimer = new JPanel();
+		GridBagConstraints gbc_panel_supprimer = new GridBagConstraints();
+		gbc_panel_supprimer.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_supprimer.fill = GridBagConstraints.BOTH;
+		gbc_panel_supprimer.gridx = 2;
+		gbc_panel_supprimer.gridy = 3;
+		panel_outil.add(panel_supprimer, gbc_panel_supprimer);
 		GridBagLayout gbl_panel_bouton2 = new GridBagLayout();
 		gbl_panel_bouton2.columnWidths = new int[] {0, 0};
 		gbl_panel_bouton2.rowHeights = new int[]{0, 0};
 		gbl_panel_bouton2.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel_bouton2.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		panel_bouton2.setLayout(gbl_panel_bouton2);
+		panel_supprimer.setLayout(gbl_panel_bouton2);
 		
+		//Bouton supprimer
 		JButton btnSupprForm = new JButton("Supprimer");
 		btnSupprForm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,22 +136,24 @@ public class VueDessin extends JFrame {
 		gbc_btnSupprForm.fill = GridBagConstraints.BOTH;
 		gbc_btnSupprForm.gridx = 0;
 		gbc_btnSupprForm.gridy = 0;
-		panel_bouton2.add(btnSupprForm, gbc_btnSupprForm);
+		panel_supprimer.add(btnSupprForm, gbc_btnSupprForm);
 		
-		JPanel panel_bouton3 = new JPanel();
-		GridBagConstraints gbc_panel_bouton3 = new GridBagConstraints();
-		gbc_panel_bouton3.insets = new Insets(0, 0, 5, 5);
-		gbc_panel_bouton3.fill = GridBagConstraints.BOTH;
-		gbc_panel_bouton3.gridx = 2;
-		gbc_panel_bouton3.gridy = 4;
-		panel_outil.add(panel_bouton3, gbc_panel_bouton3);
+		//Jpanel pour bouton lier
+		JPanel panel_lier = new JPanel();
+		GridBagConstraints gbc_panel_lier = new GridBagConstraints();
+		gbc_panel_lier.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_lier.fill = GridBagConstraints.BOTH;
+		gbc_panel_lier.gridx = 2;
+		gbc_panel_lier.gridy = 4;
+		panel_outil.add(panel_lier, gbc_panel_lier);
 		GridBagLayout gbl_panel_bouton3 = new GridBagLayout();
 		gbl_panel_bouton3.columnWidths = new int[] {0, 0};
 		gbl_panel_bouton3.rowHeights = new int[]{0, 0};
 		gbl_panel_bouton3.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel_bouton3.rowWeights = new double[]{0.0, Double.MIN_VALUE};
-		panel_bouton3.setLayout(gbl_panel_bouton3);
+		panel_lier.setLayout(gbl_panel_bouton3);
 		
+		//Bouton lier
 		JButton btnLierFoorme = new JButton("Lier");
 		btnLierFoorme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -159,8 +166,9 @@ public class VueDessin extends JFrame {
 		gbc_btnLierFoorme.weightx = 1.0;
 		gbc_btnLierFoorme.gridx = 0;
 		gbc_btnLierFoorme.gridy = 0;
-		panel_bouton3.add(btnLierFoorme, gbc_btnLierFoorme);
+		panel_lier.add(btnLierFoorme, gbc_btnLierFoorme);
 		
+		//Label pour les pinceaux
 		JLabel lblPinceaux = new JLabel("Pinceaux");
 		lblPinceaux.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPinceaux.setForeground(Color.WHITE);
@@ -170,6 +178,7 @@ public class VueDessin extends JFrame {
 		gbc_lblPinceaux.gridy = 5;
 		panel_outil.add(lblPinceaux, gbc_lblPinceaux);
 		
+		//Jpanel pour les plug-ins
 		JPanel panel_plug_ing = new JPanel();
 		GridBagConstraints gbc_panel_plug_ing = new GridBagConstraints();
 		gbc_panel_plug_ing.gridheight = 2;
