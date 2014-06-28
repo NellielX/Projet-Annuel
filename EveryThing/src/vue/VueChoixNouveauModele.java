@@ -19,9 +19,6 @@ public class VueChoixNouveauModele extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,9 +32,6 @@ public class VueChoixNouveauModele extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VueChoixNouveauModele() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Choix du nouveau mod\u00E8le");

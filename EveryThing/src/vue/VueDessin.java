@@ -13,9 +13,6 @@ public class VueDessin extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -29,9 +26,6 @@ public class VueDessin extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VueDessin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Dessin");

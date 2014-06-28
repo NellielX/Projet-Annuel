@@ -17,9 +17,6 @@ public class VueParametres extends JFrame {
 
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,9 +30,6 @@ public class VueParametres extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public VueParametres() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Param\u00E8tres");
