@@ -154,8 +154,8 @@ public class VueDessin extends JFrame {
 		panel_lier.setLayout(gbl_panel_bouton3);
 		
 		//Bouton lier
-		JButton btnLierFoorme = new JButton("Lier");
-		btnLierFoorme.addActionListener(new ActionListener() {
+		JButton btnLierForme = new JButton("Lier");
+		btnLierForme.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 			}
@@ -166,7 +166,7 @@ public class VueDessin extends JFrame {
 		gbc_btnLierFoorme.weightx = 1.0;
 		gbc_btnLierFoorme.gridx = 0;
 		gbc_btnLierFoorme.gridy = 0;
-		panel_lier.add(btnLierFoorme, gbc_btnLierFoorme);
+		panel_lier.add(btnLierForme, gbc_btnLierFoorme);
 		
 		//Label pour les pinceaux
 		JLabel lblPinceaux = new JLabel("Pinceaux");

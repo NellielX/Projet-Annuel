@@ -6,4 +6,5 @@ public interface Pinceau {
 	
 	public void redraw();
 	
+	public void onCLick(Cube cube);
 }
