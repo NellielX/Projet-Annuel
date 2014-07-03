@@ -21,6 +21,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Font;
+import java.awt.SystemColor;
 
 public class VuePrincipale extends JFrame {
 
@@ -52,12 +53,12 @@ public class VuePrincipale extends JFrame {
 		
 		//Jpanel de la bannière
 		JPanel panel_titre = new JPanel();
-		panel_titre.setBackground(Color.WHITE);
+		panel_titre.setBackground(SystemColor.menu);
 		contentPane.add(panel_titre, BorderLayout.NORTH);
 		
 		//Bouton information
 		JButton btnInformation = new JButton("");
-		btnInformation.setBackground(Color.WHITE);
+		btnInformation.setBackground(SystemColor.menu);
 		btnInformation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				VueInformations variable = new VueInformations(); 
