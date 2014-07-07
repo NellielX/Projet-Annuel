@@ -3,18 +3,30 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.media.j3d.BranchGroup;
+import javax.media.j3d.Canvas3D;
+import javax.media.j3d.TransformGroup;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.JLabel;
+
+import modele.Cube;
+
+import com.sun.j3d.utils.universe.SimpleUniverse;
+
 import java.awt.Font;
 
 public class VueDessin extends JFrame {
@@ -26,6 +38,7 @@ public class VueDessin extends JFrame {
 			public void run() {
 				try {
 					VueDessin frame = new VueDessin();
+					frame.revalidate();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -189,7 +202,18 @@ public class VueDessin extends JFrame {
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 		
 		//Jpanel dessin
+		Canvas3D canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
+		BranchGroup scene = new BranchGroup();
+		TransformGroup tg = new TransformGroup();
+		tg.addChild(new Cube());
+		scene.addChild(tg);
+		scene.compile();
+			
+		SimpleUniverse simpleU = new SimpleUniverse(canvas);
+		simpleU.getViewingPlatform().setNominalViewingTransform();
+		simpleU.addBranchGraph(scene);
 		JPanel panel_dessin = new JPanel();
+		panel_dessin.add(canvas);
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 	}
 
