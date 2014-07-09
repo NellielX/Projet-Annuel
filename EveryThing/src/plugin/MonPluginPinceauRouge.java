@@ -1,14 +1,10 @@
 package plugin;
 
-import java.awt.GridBagConstraints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.media.j3d.ColoringAttributes;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-
-
 
 public class MonPluginPinceauRouge implements PluginFunction {
 

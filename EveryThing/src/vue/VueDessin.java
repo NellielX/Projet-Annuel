@@ -42,7 +42,6 @@ public class VueDessin extends JFrame {
 					VueDessin frame = new VueDessin();
 					frame.revalidate();
 					frame.setVisible(true);
-//					plugin.PluginsLoader pl = new plugin.PluginsLoader();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -185,7 +184,7 @@ public class VueDessin extends JFrame {
 		panel_lier.add(btnLierForme, gbc_btnLierFoorme);
 		
 		//Label pour les pinceaux
-		JLabel lblPinceaux = new JLabel("Pinceaux");
+		JLabel lblPinceaux = new JLabel("Pinceaux (Plugin)");
 		lblPinceaux.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPinceaux.setForeground(Color.WHITE);
 		GridBagConstraints gbc_lblPinceaux = new GridBagConstraints();
@@ -196,11 +195,11 @@ public class VueDessin extends JFrame {
 		
 		//Jpanel pour les plug-ins
 		GridBagConstraints gbc_panel_plug_ing = new GridBagConstraints();
-		gbc_panel_plug_ing.gridheight = 2;
-		gbc_panel_plug_ing.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_plug_ing.fill = GridBagConstraints.BOTH;
+		gbc_panel_plug_ing.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_plug_ing.gridx = 2;
 		gbc_panel_plug_ing.gridy = 6;
+		panel_plug_ing.setBackground(Color.DARK_GRAY);
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 
 
