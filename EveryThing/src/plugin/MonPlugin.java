@@ -21,7 +21,7 @@ public class MonPlugin implements PluginFunction {
 		JButton btnPinceauRouge = new JButton("Pinceau rouge");
 		btnPinceauRouge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "test");
+				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau rouge !");
 				
 			}
 		});

@@ -13,7 +13,6 @@ import java.util.jar.JarFile;
 public class PluginsLoader {
 
 	public PluginsLoader() {
-		System.out.println("tset plugin");
 		init();
 	}
 
