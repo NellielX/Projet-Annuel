@@ -203,19 +203,7 @@ public class VueDessin extends JFrame {
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 
 
-		//Jpanel dessin
-		Canvas3D canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
-		BranchGroup scene = new BranchGroup();
-		TransformGroup tg = new TransformGroup();
-		tg.addChild(new Cube());
-		scene.addChild(tg);
-		scene.compile();
-			
-		SimpleUniverse simpleU = new SimpleUniverse(canvas);
-		simpleU.getViewingPlatform().setNominalViewingTransform();
-		simpleU.addBranchGraph(scene);
-		JPanel panel_dessin = new JPanel();
-		panel_dessin.add(canvas);
+		Scene3D panel_dessin = new Scene3D(Shapes3D forme);
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 	}
 
