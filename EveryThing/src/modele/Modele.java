@@ -22,8 +22,6 @@ public class Modele implements Scene{
 		
 	}
 	
-	
-	
 	public Scene ChargementModele(String cheminFichier){
 		ObjectFile loader = new ObjectFile(ObjectFile.RESIZE);
 		Scene s = null;
