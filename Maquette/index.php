@@ -30,7 +30,12 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/Maquette/fragments/shared/header.php');
 
 <div id="partie2">
     
-    Acceuil
+    Bienvenue sur le site d’EveryThing ! <br><br>
+    Afin d’utiliser l’application dans les meilleures conditions, il vous est conseillé de vous procurer le dispositif Leap Motion. <br><br>
+    De plus amples informations sont disponibles ici (et mettre le lien : https://www.leapmotion.com/)<br><br>
+    Une fois inscrit, vous pouvez télécharger l’application, mais aussi un panel d’outils d’édition. <br><br>
+    La communauté s’agrandissant, vous pourrez aussi télécharger les modèles mis à disposition d’autres utilisateurs.
+
     
 </div>
 

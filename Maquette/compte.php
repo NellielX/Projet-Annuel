@@ -28,11 +28,11 @@ include ($_SERVER['DOCUMENT_ROOT'] . '/Maquette/fragments/shared/header.php');
                 </tr>
                 <tr>
                     <td><label> Mot de passe : </label></td>     
-                    <td><input id="nom" type="text"  name="mdp" value=""/></td>
+                    <td><input id="nom" type="password"  name="mdp" value=""/></td>
                 </tr>
                 <tr>
                     <td><label> Confirmation Mot de passe : </label></td>     
-                    <td><input id="nom" type="text" name="mdp" value=""/></td>
+                    <td><input id="nom" type="password" name="mdp2" value=""/></td>
                 </tr>
                 <tr>
                     <td><label> Adresse e-mail : </label></td>     
