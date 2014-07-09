@@ -1,4 +1,6 @@
 import java.awt.EventQueue;
+
+import plugin.PluginsLoader;
 import vue_principale.VuePrincipale;
 
 
@@ -12,6 +14,7 @@ public class EveryThingMain {
 			}
 		};
 		EventQueue.invokeLater(r);
+		plugin.PluginsLoader pl = new plugin.PluginsLoader();
 	}
 
 }

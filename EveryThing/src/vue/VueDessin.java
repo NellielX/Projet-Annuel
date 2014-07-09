@@ -32,6 +32,8 @@ import java.awt.Font;
 public class VueDessin extends JFrame {
 
 	private JPanel contentPane;
+	public static JPanel panel_plug_ing = new JPanel();
+
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -40,6 +42,7 @@ public class VueDessin extends JFrame {
 					VueDessin frame = new VueDessin();
 					frame.revalidate();
 					frame.setVisible(true);
+//					plugin.PluginsLoader pl = new plugin.PluginsLoader();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -192,7 +195,6 @@ public class VueDessin extends JFrame {
 		panel_outil.add(lblPinceaux, gbc_lblPinceaux);
 		
 		//Jpanel pour les plug-ins
-		JPanel panel_plug_ing = new JPanel();
 		GridBagConstraints gbc_panel_plug_ing = new GridBagConstraints();
 		gbc_panel_plug_ing.gridheight = 2;
 		gbc_panel_plug_ing.insets = new Insets(0, 0, 0, 5);
@@ -200,21 +202,22 @@ public class VueDessin extends JFrame {
 		gbc_panel_plug_ing.gridx = 2;
 		gbc_panel_plug_ing.gridy = 6;
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
-		
+
+
 		//Jpanel dessin
-		Canvas3D canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
-		BranchGroup scene = new BranchGroup();
-		TransformGroup tg = new TransformGroup();
-		tg.addChild(new Cube());
-		scene.addChild(tg);
-		scene.compile();
-			
-		SimpleUniverse simpleU = new SimpleUniverse(canvas);
-		simpleU.getViewingPlatform().setNominalViewingTransform();
-		simpleU.addBranchGraph(scene);
-		JPanel panel_dessin = new JPanel();
-		panel_dessin.add(canvas);
-		contentPane.add(panel_dessin, BorderLayout.CENTER);
+//		Canvas3D canvas = new Canvas3D(SimpleUniverse.getPreferredConfiguration());
+//		BranchGroup scene = new BranchGroup();
+//		TransformGroup tg = new TransformGroup();
+//		tg.addChild(new Cube());
+//		scene.addChild(tg);
+//		scene.compile();
+//			
+//		SimpleUniverse simpleU = new SimpleUniverse(canvas);
+//		simpleU.getViewingPlatform().setNominalViewingTransform();
+//		simpleU.addBranchGraph(scene);
+//		JPanel panel_dessin = new JPanel();
+//		panel_dessin.add(canvas);
+//		contentPane.add(panel_dessin, BorderLayout.CENTER);
 	}
 
 }
