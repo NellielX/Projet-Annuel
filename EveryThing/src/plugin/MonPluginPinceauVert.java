@@ -1,5 +1,6 @@
 package plugin;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,7 +15,14 @@ public class MonPluginPinceauVert implements PluginFunction{
 	}
 
 	public void addItem() {
+		
+		int width = 150;
+	    int height = 70;
+	    Dimension dim = new Dimension(width, height);
+	    
 		JButton btnPinceauVert = new JButton("Pinceau vert");
+		btnPinceauVert.setPreferredSize(dim);
+		
 		btnPinceauVert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau vert !");

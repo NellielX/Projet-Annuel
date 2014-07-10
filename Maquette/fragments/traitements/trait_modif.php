@@ -4,7 +4,13 @@ session_start();
 require_once 'db.php';
 require_once 'inscrit.php';
 
-modifierUtilisateur($_SESSION['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['mdp']);
+$nom = $_POST['nom'];
+$prenom = $_POST['prenom'];
+$mail = $_POST['mail'];
+$mdp = $_POST['mdp'];
+$id = $_SESSION['id'];
+
+modifierUtilisateur($id, $nom, $prenom, $mail, $mdp);
 
 $_SESSION['nom'] = $_POST['nom'];
 $_SESSION['prenom'] = $_POST['prenom'];

@@ -36,7 +36,7 @@ function supprimerUtilisateur($id_inscrit){
 }
 
 function modifierUtilisateur($num_inscrit, $nom, $prenom, $mail, $mdp){
-    return requete("update inscrit set nom_inscrit ='".addslashes($nom)."', prenom_inscrit ='".addslashes($prenom)."', mail_inscrit ='".addslashes($mail)."', mdp_inscrit = '".addslashes($mdp)." where id_inscrit = ".addslashes($num_inscrit));
+    return requete("update inscrit set nom_inscrit ='".addslashes($nom)."', prenom_inscrit ='".addslashes($prenom)."', mail_inscrit ='".addslashes($mail)."', mdp_inscrit = '".addslashes($mdp)."' where id_inscrit = ".addslashes($num_inscrit));
 }
 
 function verifLogin($username){
