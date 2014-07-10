@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mar 24 Juin 2014 à 11:53
+-- Généré le : Jeu 10 Juillet 2014 à 07:49
 -- Version du serveur: 5.5.20
 -- Version de PHP: 5.3.10
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `inscrit` (
   `mdp_inscrit` varchar(30) NOT NULL,
   `type_compte` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_inscrit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table `inscrit`
@@ -46,7 +46,8 @@ INSERT INTO `inscrit` (`id_inscrit`, `pseudo_inscrit`, `prenom_inscrit`, `nom_in
 (3, 'admin', 'Monsieur', 'Admin', 'admin@admin.fr', 'admin', 0),
 (4, 'Jean', 'Jean', 'Lafritte', 'jean@lafritte.fr', 'jean', 1),
 (5, 'Jeanne', 'Jeanne', 'Lagauffre', 'jeanne@lagauffre.fr', 'jeanne', 1),
-(11, 'admin2', 'Monsieur', 'admin2', 'admin2@admin2.fr', 'c84258e9c39059a89ab77d846ddab9', 0);
+(11, 'admin2', 'Monsieur', 'admin2', 'admin2@admin2.fr', 'c84258e9c39059a89ab77d846ddab9', 0),
+(12, 'nelliel', 'Gaëtan', 'Marzilli', 'azerty@azerty.fr', 'azerty', 1);
 
 -- --------------------------------------------------------
 
@@ -68,15 +69,15 @@ CREATE TABLE IF NOT EXISTS `modele` (
   `id_inscrit` int(11) NOT NULL,
   PRIMARY KEY (`id_modele`),
   KEY `FK_modele_id_inscrit` (`id_inscrit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `modele`
 --
 
 INSERT INTO `modele` (`id_modele`, `nom_modele`, `description_modele`, `url_modele`, `image_modele`, `statut_modele`, `hauteur_modele`, `largeur_modele`, `longueur_modele`, `date_modele`, `id_inscrit`) VALUES
-(2, 'Le Cube', 'C''est un jolie cube et tout et tout super classe avec une couleur bleu ', 'download/modele/cube.rar', 'res/img_modele/cube.jpg', 'azerty', 10, 10, 10, '2014-06-12', 3),
-(3, 'La Sphere', 'C''est une jolie sphere et tout et tout', 'download/modele/sphere.rar', 'res/img_modele/sphere.png', 'gggggg', 10, 10, 10, '2014-06-26', 3);
+(2, 'Le Cube', 'C''est un joli cube avec une couleur bleu ', 'download/modele/cube.rar', 'res/img_modele/cube.jpg', 'azerty', 10, 10, 10, '2014-06-12', 3),
+(3, 'La Sphere', 'C''est une jolie sphere !', 'download/modele/sphere.rar', 'res/img_modele/sphere.png', 'gggggg', 10, 10, 10, '2014-06-26', 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `plug_in` (
 --
 
 INSERT INTO `plug_in` (`id_plug_in`, `nom_plug_in`, `desciption_plug_in`, `url_plug_in`, `image_plug_in`, `date_plug_in`, `id_inscrit`) VALUES
-(1, 'test', 'testtesttest', 'test', 'test', '2014-06-18', 1);
+(1, 'test', 'testtesttest', 'test', 'test', '2014-06-18', 3);
 
 --
 -- Contraintes pour les tables exportées
