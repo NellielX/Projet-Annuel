@@ -23,19 +23,6 @@ public class VueChoixNouveauModele extends JFrame {
 
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VueChoixNouveauModele frame = new VueChoixNouveauModele();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public VueChoixNouveauModele() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Choix du nouveau mod\u00E8le");

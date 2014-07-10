@@ -19,19 +19,6 @@ public class VueInformations extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VueInformations frame = new VueInformations();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public VueInformations() {
 		setTitle("Everything in your Hands - Informations");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -17,6 +17,7 @@ public class PluginsLoader {
 	}
 
 	private void init() {
+		//Dossier contenant les plugins
 			File file = new File("./plugin");
 			File[] files = file.listFiles();
 			if (files != null) {
@@ -35,7 +36,7 @@ public class PluginsLoader {
 	}
 	private void initmore(String fichier){
 		String path = "./plugin/"+fichier;
-
+		//Chargement des Jar
 		JarFile jarFile = null;
 		try {
 			jarFile = new JarFile(path);

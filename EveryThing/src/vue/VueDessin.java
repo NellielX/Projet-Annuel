@@ -34,21 +34,6 @@ public class VueDessin extends JFrame {
 	private JPanel contentPane;
 	public static JPanel panel_plug_ing = new JPanel();
 
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VueDessin frame = new VueDessin();
-					frame.revalidate();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	public VueDessin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Dessin");
@@ -203,8 +188,8 @@ public class VueDessin extends JFrame {
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 
 
-		Scene3D panel_dessin = new Scene3D(Shapes3D forme);
-		contentPane.add(panel_dessin, BorderLayout.CENTER);
+//		Scene3D panel_dessin = new Scene3D(Shapes3D forme);
+//		contentPane.add(panel_dessin, BorderLayout.CENTER);
 	}
 
 }
