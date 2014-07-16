@@ -9,7 +9,7 @@ public class EveryThingMain {
 	public static void main(String[] args) {
 		Runnable r = new Runnable() {
 			public void run(){
-				VuePrincipale vuePrincipale = new VuePrincipale(); 
+				VuePrincipale vuePrincipale = new VuePrincipale();
 				vuePrincipale.setVisible(true);
 			}
 		};

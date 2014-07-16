@@ -1,38 +1,28 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.media.j3d.BranchGroup;
-import javax.media.j3d.Canvas3D;
-import javax.media.j3d.TransformGroup;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
-import javax.swing.JButton;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JLabel;
-
-import modele.Cube;
-
-import com.sun.j3d.utils.universe.SimpleUniverse;
-
-import java.awt.Font;
+import modele.Dessin;
 
 public class VueDessin extends JFrame {
 
 	private JPanel contentPane;
 	public static JPanel panel_plug_ing = new JPanel();
+	private PanelDessin panel_dessin;
 
 	public VueDessin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -187,9 +177,15 @@ public class VueDessin extends JFrame {
 		panel_plug_ing.setBackground(Color.DARK_GRAY);
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 
+		Dessin myDraw = new Dessin();
+		PanelDessin panel_dessin = new PanelDessin(myDraw);
+		contentPane.add(panel_dessin, BorderLayout.CENTER);
+		panel_dessin.setVisible(true);
+	}
 
-//		Scene3D panel_dessin = new Scene3D(Shapes3D forme);
-//		contentPane.add(panel_dessin, BorderLayout.CENTER);
+	public PanelDessin getPanelDessin() {
+		// TODO Auto-generated method stub
+		return this.panel_dessin;
 	}
 
 }
