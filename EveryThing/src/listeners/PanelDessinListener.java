@@ -51,17 +51,36 @@ public class PanelDessinListener extends Listener{
     }
 
     public void onFrame(Controller c){
-    	Frame current = c.frame();
-    	FingerList fingersInFrame = current.fingers();
-    	if(fingersInFrame.count()==1){
+    	while(c.frame()!=null){
+	    	Frame current = c.frame();
+	    	FingerList fingersInFrame = current.fingers();
+	  
     		Finger myFinger = fingersInFrame.get(0);
     		Vector FingerDirection = myFinger.direction();
     		
     		Point p = new Point(FingerDirection.getX(),FingerDirection.getY());
     		this.draw.ajouterPoint(p);
+    		this.view.revalidate();
     		this.view.repaint();
+    		
     	}
     }
+
+	public PanelDessin getView() {
+		return view;
+	}
+
+	public void setView(PanelDessin view) {
+		this.view = view;
+	}
+
+	public Dessin getDraw() {
+		return draw;
+	}
+
+	public void setDraw(Dessin draw) {
+		this.draw = draw;
+	}
     
     
 }
