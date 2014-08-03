@@ -34,7 +34,8 @@ import java.awt.SystemColor;
 public class New_vue_Dessin extends JFrame {
 
 	private JPanel contentPane;
-
+	public static JPanel panel_plugin_couleurs = new JPanel();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -61,6 +62,7 @@ public class New_vue_Dessin extends JFrame {
 	     int width = 50;
 	     int height = 50;
 	     Dimension dim = new Dimension(width, height);
+	     
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -145,16 +147,16 @@ public class New_vue_Dessin extends JFrame {
 		contentPane.add(panel_couleurs, BorderLayout.EAST);
 		GridBagLayout gbl_panel_couleurs = new GridBagLayout();
 		gbl_panel_couleurs.columnWidths = new int[] {0, 0, 180};
-		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0};
-		gbl_panel_couleurs.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_panel_couleurs.columnWeights = new double[]{0.0, 1.0, 1.0};
+		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_couleurs.setLayout(gbl_panel_couleurs);
 		
-		//Jpanel pour le sbouton de couleurs
+		//Jpanel pour les bouton de couleurs
 		JPanel panel_bouton_couleurs = new JPanel();
 		panel_bouton_couleurs.setBackground(SystemColor.menu);
 		GridBagConstraints gbc_panel_bouton_couleurs = new GridBagConstraints();
-		gbc_panel_bouton_couleurs.insets = new Insets(0, 10, 0, 0);
+		gbc_panel_bouton_couleurs.insets = new Insets(0, 10, 5, 0);
 		gbc_panel_bouton_couleurs.gridwidth = 2;
 		gbc_panel_bouton_couleurs.fill = GridBagConstraints.BOTH;
 		gbc_panel_bouton_couleurs.gridx = 1;
@@ -291,6 +293,18 @@ public class New_vue_Dessin extends JFrame {
 		gbc_btnVert.gridy = 3;
 		btnVert.setPreferredSize(dim);
 		panel_bouton_couleurs.add(btnVert, gbc_btnVert);
+		
+		//Jpanel plugins palette couleur
+		FlowLayout fl_panel_plugin_couleurs = (FlowLayout) panel_plugin_couleurs.getLayout();
+		fl_panel_plugin_couleurs.setVgap(1);
+		fl_panel_plugin_couleurs.setHgap(1);
+		panel_plugin_couleurs.setBackground(SystemColor.menu);
+		GridBagConstraints gbc_panel_plugin_couleurs = new GridBagConstraints();
+		gbc_panel_plugin_couleurs.insets = new Insets(0, 0, 200, 0);
+		gbc_panel_plugin_couleurs.fill = GridBagConstraints.BOTH;
+		gbc_panel_plugin_couleurs.gridx = 2;
+		gbc_panel_plugin_couleurs.gridy = 1;
+		panel_couleurs.add(panel_plugin_couleurs, gbc_panel_plugin_couleurs);
 	}
 
 }
