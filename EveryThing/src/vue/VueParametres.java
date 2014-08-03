@@ -20,7 +20,7 @@ public class VueParametres extends JFrame {
 	public VueParametres() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setTitle("Everything in your Hands - Param\u00E8tres");
-		setBounds(100, 100, 953, 615);
+		setBounds(100, 100, 353, 457);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

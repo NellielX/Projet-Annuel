@@ -38,7 +38,7 @@ public class MonPluginPaletteCouleur implements PluginFunction {
 		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_couleurs.setLayout(gbl_panel);
 		
-		//Jbutton pinceua gris
+		//Jbutton pinceau gris
 		JButton btnPinceauGris = new JButton("");
 		btnPinceauGris.setPreferredSize(dim);	
 		btnPinceauGris.setBackground(Color.GRAY);

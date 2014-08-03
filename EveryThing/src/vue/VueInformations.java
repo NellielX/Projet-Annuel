@@ -22,7 +22,7 @@ public class VueInformations extends JFrame {
 	public VueInformations() {
 		setTitle("Everything in your Hands - Informations");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 953, 615);
+		setBounds(100, 100, 725, 468);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
