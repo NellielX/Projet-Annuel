@@ -1,15 +1,18 @@
 package vue_principale;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import java.awt.FlowLayout;
 import java.awt.Color;
@@ -18,6 +21,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import vue.VueInformations;
 import vue.VueParametres;
@@ -29,7 +33,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JButton;
+
 import java.awt.SystemColor;
+import java.io.File;
+import java.io.FileFilter;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 public class New_vue_Dessin extends JFrame {
 
@@ -51,7 +60,6 @@ public class New_vue_Dessin extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -78,6 +86,21 @@ public class New_vue_Dessin extends JFrame {
 		//Bouton ouvrir
 		JMenuItem mntmOuvrir = new JMenuItem("Ouvrir");
 		mnMenu.add(mntmOuvrir);
+		mntmOuvrir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Component parent = null;
+				JFileChooser choix = new JFileChooser();
+				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				int retour=choix.showOpenDialog(parent);
+				if(retour==JFileChooser.APPROVE_OPTION){
+				   // un fichier a été choisi (sortie par OK)
+				   // nom du fichier  choisi 
+				   choix.getSelectedFile().getName();
+				   // chemin absolu du fichier choisi
+				   choix.getSelectedFile().getAbsolutePath();
+				}	
+			}
+		});
 		
 		//Bouton sauver
 		JMenuItem mntmSauvegarder = new JMenuItem("Sauver");
@@ -124,13 +147,60 @@ public class New_vue_Dessin extends JFrame {
 		JMenu mnPlugins = new JMenu("Plugins");
 		menuBar.add(mnPlugins);
 		
-		//Bouton ajouter
+		//Bouton ajouter un plugin
 		JMenuItem mntmAjouter = new JMenuItem("Ajouter ");
 		mnPlugins.add(mntmAjouter);
+		mntmAjouter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Component parent = null;
+				//Fenetre pour choix du plugin
+				JFileChooser choix = new JFileChooser();
+				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				
+				//Filtrage des points jar
+				FileNameExtensionFilter filtre = new FileNameExtensionFilter("Plugin (.jar)", "jar");
+				choix.setFileFilter(filtre);
+				choix.setMultiSelectionEnabled(false);
+			
+				int retour=choix.showOpenDialog(parent);
+				if(retour==JFileChooser.APPROVE_OPTION){
+				   File fichier = new File(choix.getSelectedFile().getAbsolutePath());
+				   File destination = new File(".." + File.separator + "EveryThing" + File.separator + "plugin" + File.separator + choix.getSelectedFile().getName() );
+				   controleur.GestionPlugin.copyFile(fichier, destination);
+				   plugin.PluginsLoader pl = new plugin.PluginsLoader();
+				   JOptionPane.showMessageDialog(null, "Le plugin '" + choix.getSelectedFile().getName() + "' à été charger avec succès.");
+				}	
+			}
+		});
 		
-		//Bouton supprimer
+		//Bouton supprimer un plugin
 		JMenuItem mntmSupprimer = new JMenuItem("Supprimer");
 		mnPlugins.add(mntmSupprimer);
+		mntmSupprimer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Component parent = null;
+				//Fenetre pour choix du plugin
+				JFileChooser choix = new JFileChooser();
+				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				//Dossier par defaut
+				choix.setCurrentDirectory(new File(".." + File.separator + "Everything" + File.separator + "plugin"));
+				//Filtrage des points jar
+				FileNameExtensionFilter filtre = new FileNameExtensionFilter("Plugin (.jar)", "jar");
+				choix.setFileFilter(filtre);
+				choix.setMultiSelectionEnabled(false);
+				
+				int retour=choix.showOpenDialog(parent);
+				if(retour==JFileChooser.APPROVE_OPTION){
+				   try {
+					controleur.GestionPlugin.deleteFile(choix.getSelectedFile().getAbsolutePath());
+//					plugin.PluginsLoader pl = new plugin.PluginsLoader();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}   
+				}	
+			}
+		});
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -258,6 +328,7 @@ public class New_vue_Dessin extends JFrame {
 		btnNoir.setBackground(Color.BLACK);
 		btnNoir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau gris !");
 			}
 		});
 		GridBagConstraints gbc_btnNoir = new GridBagConstraints();

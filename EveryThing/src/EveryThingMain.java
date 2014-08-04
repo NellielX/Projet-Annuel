@@ -8,8 +8,6 @@ import java.awt.EventQueue;
 //import plugin.PluginsLoader;
 import vue_principale.New_vue_Dessin;
 
-
-
 public class EveryThingMain {
 
 	public static void main(String[] args) {
