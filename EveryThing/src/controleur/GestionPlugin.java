@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import vue_principale.New_vue_Dessin;
 
 public class GestionPlugin {
-
+		
 	/**
 	 * Copie le fichier source dans le fichier resultat Retourne vrai si cela réussit
 	 * @param source
@@ -20,35 +20,40 @@ public class GestionPlugin {
 	 */
 	public static boolean copyFile(File source, File destination) {
 		
-		try {
-			// Declaration et ouverture des flux
-			java.io.FileInputStream sourceFile = new java.io.FileInputStream(
-					source);
-
+		if(destination.exists()){
+			 JOptionPane.showMessageDialog(null, "Le plugin que vous voulez actuellement charger, " +
+			 		"est déjà présent dans l'application");	
+			 return false;
+		} else {	
 			try {
-				java.io.FileOutputStream destinationFile = null;
-
+				// Declaration et ouverture des flux
+				java.io.FileInputStream sourceFile = new java.io.FileInputStream(
+						source);
+	
 				try {
-					destinationFile = new FileOutputStream(destination);
-
-					// Lecture par segment de 0.5Mo
-					byte buffer[] = new byte[512 * 1024];
-					int nbLecture;
-
-					while ((nbLecture = sourceFile.read(buffer)) != -1) {
-						destinationFile.write(buffer, 0, nbLecture);
+					java.io.FileOutputStream destinationFile = null;
+	
+					try {
+						destinationFile = new FileOutputStream(destination);
+	
+						// Lecture par segment de 0.5Mo
+						byte buffer[] = new byte[512 * 1024];
+						int nbLecture;
+	
+						while ((nbLecture = sourceFile.read(buffer)) != -1) {
+							destinationFile.write(buffer, 0, nbLecture);
+						}
+					} finally {
+						destinationFile.close();
 					}
 				} finally {
-					destinationFile.close();
+					sourceFile.close();
 				}
-			} finally {
-				sourceFile.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false; // Erreur
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false; // Erreur
-		}
-
+		}	
 		return true; // Résultat OK
 	}
 
@@ -67,7 +72,6 @@ public class GestionPlugin {
 		if (!file.canWrite()) {
 			throw new Exception("Droit insuffisant pour accéder au fichier");
 		}
-
 		return file.delete();
 	}
 		

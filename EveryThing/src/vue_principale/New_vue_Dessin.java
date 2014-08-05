@@ -39,6 +39,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Set;
 
 public class New_vue_Dessin extends JFrame {
 
@@ -166,9 +167,13 @@ public class New_vue_Dessin extends JFrame {
 				if(retour==JFileChooser.APPROVE_OPTION){
 				   File fichier = new File(choix.getSelectedFile().getAbsolutePath());
 				   File destination = new File(".." + File.separator + "EveryThing" + File.separator + "plugin" + File.separator + choix.getSelectedFile().getName() );
-				   controleur.GestionPlugin.copyFile(fichier, destination);
-				   plugin.PluginsLoader pl = new plugin.PluginsLoader();
-				   JOptionPane.showMessageDialog(null, "Le plugin '" + choix.getSelectedFile().getName() + "' à été charger avec succès.");
+				   if (controleur.GestionPlugin.copyFile(fichier, destination) == true){
+					   plugin.PluginsLoader pl = new plugin.PluginsLoader();
+					   JOptionPane.showMessageDialog(null, "Le plugin '" + choix.getSelectedFile().getName() + "' à été charger avec succès.");
+				   }
+//				   } else {
+//					   JOptionPane.showMessageDialog(null, "Un problème lors du chargement du plugin à été détecté.");
+//				   }
 				}	
 			}
 		});
@@ -188,12 +193,17 @@ public class New_vue_Dessin extends JFrame {
 				FileNameExtensionFilter filtre = new FileNameExtensionFilter("Plugin (.jar)", "jar");
 				choix.setFileFilter(filtre);
 				choix.setMultiSelectionEnabled(false);
+				//Changement du bouton et du commentaire de la fenêtre de suppression de plugin
+				choix.setApproveButtonText("Supprimer");
+				choix.setApproveButtonToolTipText("Suppression du plugin selectionner");
 				
 				int retour=choix.showOpenDialog(parent);
 				if(retour==JFileChooser.APPROVE_OPTION){
 				   try {
 					controleur.GestionPlugin.deleteFile(choix.getSelectedFile().getAbsolutePath());
-//					plugin.PluginsLoader pl = new plugin.PluginsLoader();
+					panel_plugin_couleurs.removeAll();
+					panel_plugin_couleurs.repaint();
+					plugin.PluginsLoader pl = new plugin.PluginsLoader();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}   
@@ -244,6 +254,8 @@ public class New_vue_Dessin extends JFrame {
 		btnRouge.setBackground(Color.RED);
 		btnRouge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				panel_plugin_couleurs.removeAll();
+				panel_plugin_couleurs.repaint();
 			}
 		});
 		GridBagConstraints gbc_btnRouge = new GridBagConstraints();
@@ -258,6 +270,7 @@ public class New_vue_Dessin extends JFrame {
 		btnRose.setBackground(Color.PINK);
 		btnRose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println(System.getProperty("java.class.path"));
 			}
 		});
 		GridBagConstraints gbc_btnRose = new GridBagConstraints();
