@@ -1,7 +1,8 @@
 package listeners;
 
+import java.awt.geom.Point2D;
+
 import modele.Dessin;
-import modele.Point;
 import vue.PanelDessin;
 import vue.VueDessin;
 
@@ -49,23 +50,22 @@ public class PanelDessinListener extends Listener{
     public void onFocusLost(Controller c){
     	System.out.println("Focus Perdu");
     }
-
+    /*
     public void onFrame(Controller c){
-    	while(c.frame()!=null){
 	    	Frame current = c.frame();
 	    	FingerList fingersInFrame = current.fingers();
 	  
     		Finger myFinger = fingersInFrame.get(0);
     		Vector FingerDirection = myFinger.direction();
     		
-    		Point p = new Point(FingerDirection.getX(),FingerDirection.getY());
+    		Point2D p ;
+    		p.setLocation(FingerDirection.getX(), FingerDirection.getY());
+    		
     		this.draw.ajouterPoint(p);
     		this.view.revalidate();
     		this.view.repaint();
-    		
-    	}
     }
-
+	*/
 	public PanelDessin getView() {
 		return view;
 	}

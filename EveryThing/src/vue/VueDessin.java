@@ -16,13 +16,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.leapmotion.leap.Controller;
-
 import listeners.PanelDessinListener;
+import listeners.PanelDessinMouseListener;
 import modele.Dessin;
 
 public class VueDessin extends JFrame {
 
+	private Dessin d;
 	private JPanel contentPane;
 	public static JPanel panel_plug_ing = new JPanel();
 	private PanelDessin panel_dessin;
@@ -181,10 +181,9 @@ public class VueDessin extends JFrame {
 		panel_outil.add(panel_plug_ing, gbc_panel_plug_ing);
 
 		//JPanel de dessin
-		Dessin myDraw = new Dessin();
+		Dessin myDraw = new Dessin(null, null, rootPaneCheckingEnabled, null);
 		PanelDessin panel_dessin = new PanelDessin(myDraw);
-		Controller c = new Controller();
-		c.addListener(new PanelDessinListener(panel_dessin, myDraw));
+		//panel_dessin.addContainerListener(new PanelDessinMouseListener(panel_dessin, myDraw));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 		panel_dessin.setVisible(true);
 	}
