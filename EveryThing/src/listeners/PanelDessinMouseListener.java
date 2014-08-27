@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import vue.PanelDessin;
+import vue.PanelOutil;
 import modele.Dessin;
 
 public class PanelDessinMouseListener implements MouseListener{
@@ -11,10 +12,10 @@ public class PanelDessinMouseListener implements MouseListener{
 	private Dessin draw;
 	private PanelDessin view;
 	
-	public PanelDessinMouseListener(PanelDessin panel_dessin, Dessin myDraw) {
+	public PanelDessinMouseListener(PanelDessin panelDessin, Dessin d) {
 		// TODO Auto-generated constructor stub
-		this.draw = myDraw;
-		this.view = panel_dessin;
+		draw = d;
+		view = panelDessin;
 	}
 
 	@Override
