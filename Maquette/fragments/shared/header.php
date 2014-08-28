@@ -51,7 +51,7 @@
             <ul id="main-menu">
                     <li><a href="index.php">Acceuil</a></li>
                     <li><div id="split_menu"></div></li>
-                    <li><a href="modele.php">Modèles</a></li>
+                    <li><a href="modele.php">Créations</a></li>
                     <li><div id="split_menu"></div></li>
                     <li><a href="download.php">Téléchargement</a></li>
                     <li><div id="split_menu"></div></li>

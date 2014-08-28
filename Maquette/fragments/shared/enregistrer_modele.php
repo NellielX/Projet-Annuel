@@ -4,23 +4,13 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Maquette/fragments/traitements/db.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Maquette/fragments/traitements/modele.php';
 
 $nom = $_POST['nom'];
-$description= $_POST['description'];
-$statut = $_POST['statut'];
-$hauteur = $_POST['hauteur'];
-$largeur = $_POST['largeur'];
-$longueur = $_POST['longueur'];
 $date = $_POST['date'];
 $url= $_POST['url'];
-$image= $_POST['image'];
+
 var_dump($nom);
-var_dump($description);
-var_dump($statut);
-var_dump($hauteur);
-var_dump($largeur);
-var_dump($longueur);
 var_dump($date);
 var_dump($url);
-var_dump($image);
+
 $id_max_modele = showModeleMax();
 var_dump($id_max_modele);
 

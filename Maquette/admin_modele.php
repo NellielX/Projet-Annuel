@@ -22,37 +22,13 @@ require_once 'fragments/traitements/modele.php';
         <form method="post" action="fragments/shared/enregistrer_modele.php">
             <table id="table" align="center">
                 <tr>
-                    <td><label> Nom du modele :  </label></td>     
+                    <td><label> Nom de l'image :  </label></td>     
                     <td><input id="nom" type="text" required="true" name="nom" value=""/></td>
                 </tr>
                 <tr>
-                    <td><label> Description :  </label></td>     
-                    <td><textarea name="description" id="description" rows="10" cols="50" required="true"> </textarea> </td>
-                </tr>
-                <tr>
-                    <td><label> Url du modèle :  </label></td>     
+                    <td><label> Url de l'image :  </label></td>     
                     <td><input name="url" type="file"></td>
                 </tr>
-                <tr>
-                    <td><label> Image du modèle : </label></td>     
-                    <td><input name="image" type="file"></td>
-                </tr>
-                <tr>
-                    <td><label> Statut du modèle : </label></td>     
-                    <td><input id="nom" type="text" required="true" name="statut"  value=""/></td>
-                </tr>
-                <tr>
-                    <td><label> Hauteur du modèle : </label></td>     
-                    <td> <input id="mail" type="text" name="hauteur" required="true" value=""/></td>
-                </tr>
-                <tr>
-                    <td><label> Largeur du modèle : </label></td>     
-                    <td> <input id="mail" type="text" name="largeur" required="true" value=""/></td>
-                </tr>  
-                <tr>
-                    <td><label> Longueur du modèle : </label></td>     
-                    <td> <input id="mail" type="text" name="longueur" required="true" value=""/></td>
-                </tr>  
                 <tr>
                     <td><label> Date de création : </label></td>     
                     <td> <input id="mail" type="date" name="date" required="true" value=""/></td>

@@ -36,6 +36,12 @@ a {text-decoration: none;color:bi;}
 
 }
 
+#page_content{
+    margin-top: 70px;
+    position:absolute;
+    height: 100%;
+}
+
 #login{
      font-style: oblique;
      color: black;
@@ -212,10 +218,6 @@ a {text-decoration: none;color:bi;}
     margin-left: 20px;
 }
 
-#page_content{
-    margin-top: 70px;
-    position:absolute;
-}
 
 #un_plug_in{
     size: 300px;
@@ -237,13 +239,17 @@ a {text-decoration: none;color:bi;}
 }
 
 #un_modele{
-    size: 500px;
+    size: 1000px;
     position: relative;
     margin-bottom: 20px;
     margin-top: 20px;
-    margin-left: 20px; 
-    margin-right: 400px;
+    margin-left: 120px; 
+/*    margin-right: 10px;*/
     box-shadow: 2px 0px 10px grey;
+}
+
+#images_upload{
+    width: 400px;
 }
 
 #text_modele{
@@ -258,6 +264,7 @@ a {text-decoration: none;color:bi;}
 #votes{
     font-size: 85%;
 }
+
 
 
 #split_modele{

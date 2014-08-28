@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Jeu 10 Juillet 2014 à 07:49
+-- Généré le : Jeu 28 Août 2014 à 12:16
 -- Version du serveur: 5.5.20
 -- Version de PHP: 5.3.10
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `inscrit` (
   `mdp_inscrit` varchar(30) NOT NULL,
   `type_compte` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_inscrit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Contenu de la table `inscrit`
@@ -58,26 +58,22 @@ INSERT INTO `inscrit` (`id_inscrit`, `pseudo_inscrit`, `prenom_inscrit`, `nom_in
 CREATE TABLE IF NOT EXISTS `modele` (
   `id_modele` int(11) NOT NULL AUTO_INCREMENT,
   `nom_modele` varchar(20) NOT NULL,
-  `description_modele` varchar(1000) NOT NULL,
   `url_modele` varchar(200) NOT NULL,
   `image_modele` varchar(200) NOT NULL,
-  `statut_modele` varchar(30) NOT NULL,
-  `hauteur_modele` float NOT NULL,
-  `largeur_modele` float NOT NULL,
-  `longueur_modele` float NOT NULL,
   `date_modele` date NOT NULL,
   `id_inscrit` int(11) NOT NULL,
   PRIMARY KEY (`id_modele`),
   KEY `FK_modele_id_inscrit` (`id_inscrit`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `modele`
 --
 
-INSERT INTO `modele` (`id_modele`, `nom_modele`, `description_modele`, `url_modele`, `image_modele`, `statut_modele`, `hauteur_modele`, `largeur_modele`, `longueur_modele`, `date_modele`, `id_inscrit`) VALUES
-(2, 'Le Cube', 'C''est un joli cube avec une couleur bleu ', 'download/modele/cube.rar', 'res/img_modele/cube.jpg', 'azerty', 10, 10, 10, '2014-06-12', 3),
-(3, 'La Sphere', 'C''est une jolie sphere !', 'download/modele/sphere.rar', 'res/img_modele/sphere.png', 'gggggg', 10, 10, 10, '2014-06-26', 3);
+INSERT INTO `modele` (`id_modele`, `nom_modele`, `url_modele`, `image_modele`, `date_modele`, `id_inscrit`) VALUES
+(2, 'Midona', 'download/modele/midona.jpg', 'res/modele/midona.jpg', '2014-06-12', 3),
+(3, 'Link', 'download/modele/link.jpg', 'res/modele/link.jpg', '2014-06-26', 5),
+(4, 'Zelda', 'download/modele/zelda.jpg', 'res/modele/zelda.jpg', '2014-06-12', 4);
 
 -- --------------------------------------------------------
 

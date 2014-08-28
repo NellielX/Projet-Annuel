@@ -8,8 +8,8 @@ require_once 'db.php';
 */
 
 function creerModele($id_max_modele, $nom, $description, $url, $image, $statut, $hauteur, $largeur, $longueur, $date){
-    return requete("insert into modele(id_modele, nom_modele, description_modele, url_modele, image_modele, statut_modele, hauteur_modele, largeur_modele, longueur_modele, date_modele, id_inscrit) 
-    values('".$id_max_modele."','".addslashes($nom)."','".addslashes($description)."','".addslashes($url)."','".addslashes($image)."','".addslashes($statut)."','".$hauteur."','".$largeur."','".$longueur."','".$date."',3)");
+    return requete("insert into modele(id_modele, nom_modele, url_modele, image_modele, date_modele, id_inscrit) 
+    values('".$id_max_modele."','".addslashes($nom)."','".addslashes($url)."','".addslashes($image)."','".$date."',3)");
 }
 
 function showModele(){
@@ -25,6 +25,10 @@ function infoModele($num_modele){
 
 function supprimerModele($id_modele){
     return requete("delete from modele where id_modele = ".addslashes($id_modele));
+}
+
+function trouverCreateur($id_inscrit){
+    return requete("select pseudo_inscrit from inscrit where id_inscrit = ".$id_inscrit , true);
 }
 
 ?>
