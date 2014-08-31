@@ -183,7 +183,7 @@ public class VueDessin extends JFrame {
 		//JPanel de dessin
 		Dessin myDraw = new Dessin(null, null, rootPaneCheckingEnabled, null);
 		PanelDessin panel_dessin = new PanelDessin(myDraw);
-		//panel_dessin.addContainerListener(new PanelDessinMouseListener(panel_dessin, myDraw));
+		panel_dessin.addMouseListener(new PanelDessinMouseListener(panel_dessin, myDraw));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 		panel_dessin.setVisible(true);
 	}
