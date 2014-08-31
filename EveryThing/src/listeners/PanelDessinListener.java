@@ -1,19 +1,9 @@
 package listeners;
 
-import java.awt.geom.Point2D;
-
 import modele.Dessin;
 import vue.PanelDessin;
-import vue.VueDessin;
-
 import com.leapmotion.leap.Controller;
-import com.leapmotion.leap.Finger;
-import com.leapmotion.leap.FingerList;
-import com.leapmotion.leap.Frame;
-import com.leapmotion.leap.Gesture;
-import com.leapmotion.leap.GestureList;
 import com.leapmotion.leap.Listener;
-import com.leapmotion.leap.Vector;
 
 public class PanelDessinListener extends Listener{
 	//Intercepte les mouvements et propriétés du leap motion

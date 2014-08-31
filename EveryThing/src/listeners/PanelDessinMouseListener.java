@@ -22,7 +22,9 @@ public class PanelDessinMouseListener implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		System.out.println("-"+d.getFormeCourante().toString());
 		if(d.getFormeCourante() != null && e.getClickCount()==1){
+			System.out.println((int)e.getX()+" - "+(int)e.getY());
 			Point2D p = null;
 			p.setLocation((int)e.getX(), (int)e.getY());
 			d.getFormeCourante().ajouterPoint(p);

@@ -12,9 +12,19 @@ public class Dessin extends BufferedImage{
 	private ColorModel cm;
 	private WritableRaster wr;
 	private Vector<Calque> listCalque;
-	private int CalqueCourant;
+	private int idCalqueCourant;
 	
 	private Forme formeCourante;
+	
+	public Dessin(int width, int height, int type){
+		super(width,height,type);
+		this.cm = super.getColorModel();
+		this.wr = super.getRaster();
+		listCalque = new Vector<Calque>();
+		Calque calque_ref = new Calque(0);
+		listCalque.add(calque_ref);
+		idCalqueCourant = 0;
+	}
 
 	public Dessin(ColorModel cm, WritableRaster wr, boolean arg2,
 			Hashtable<?, ?> arg3) {
@@ -24,6 +34,7 @@ public class Dessin extends BufferedImage{
 		listCalque = new Vector<Calque>();
 		Calque calque_ref = new Calque(0);
 		listCalque.add(calque_ref);
+		idCalqueCourant = 0;
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -43,12 +54,12 @@ public class Dessin extends BufferedImage{
 		this.wr = wr;
 	}
 	
-	public int getCalqueCourant() {
-		return CalqueCourant;
+	public int getIdCalqueCourant() {
+		return idCalqueCourant;
 	}
 
-	public void setCalqueCourant(int calqueCourant) {
-		CalqueCourant = calqueCourant;
+	public void setIdCalqueCourant(int idCalqueCourant) {
+		this.idCalqueCourant = idCalqueCourant;
 	}
 	
 	public Vector<Calque> getListCalque(){
@@ -88,8 +99,9 @@ public class Dessin extends BufferedImage{
 		}
 	}
 
-	public Calque getCalqueCourant(int calqueCourant) {
-		return this.listCalque.elementAt(calqueCourant);
+	public Calque getCalqueCourant(int idCalqueCourant) {
+		return this.listCalque.elementAt(idCalqueCourant);
 	}
+
 
 }

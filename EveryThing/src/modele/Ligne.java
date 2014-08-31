@@ -14,7 +14,7 @@ public class Ligne extends Forme{
 	
 	/* --- CONSTRUCTORS --- */
 	public Ligne(){
-		setTabPoints(new Point2D[2]);
+		init(new Point2D[2]);
 		couleurTrait = Color.BLACK ;
 	}
 	

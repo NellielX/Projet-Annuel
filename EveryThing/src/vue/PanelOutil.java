@@ -57,13 +57,10 @@ public class PanelOutil extends JPanel{
 		
 		//Jbutton ligne
 		JButton btnOutilLigne = new JButton("");
+		btnOutilLigne.setName("ligne");
 		btnOutilLigne.setPreferredSize(dim);	
 		btnOutilLigne.setBackground(Color.GRAY);
-		btnOutilLigne.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est une belle ligne grise !");
-			}
-		});
+		btnOutilLigne.addActionListener(new OutilListener(this, draw));
 		GridBagConstraints gbc_btnOutilLigne = new GridBagConstraints();
 		gbc_btnOutilLigne.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOutilLigne.gridx = 5;
@@ -71,20 +68,33 @@ public class PanelOutil extends JPanel{
 		panel_outils.add(btnOutilLigne, gbc_btnOutilLigne);
 		
 		//Jbutton rectangle
-		JButton btnOutilRectangle = new JButton("");
+		JButton btnOutilRectangle = new JButton("Rectangle");
 		btnOutilRectangle.setPreferredSize(dim);	
-		btnOutilRectangle.setBackground(new Color(139, 69, 19));
-		btnOutilRectangle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est un beau rectangle !");
-			}
-		});
+		btnOutilRectangle.setBackground(Color.GRAY);
+		btnOutilRectangle.addActionListener(new OutilListener(this, draw));
 		GridBagConstraints gbc_btnOutilRectangle = new GridBagConstraints();
 		gbc_btnOutilRectangle.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOutilRectangle.gridx = 5;
 		gbc_btnOutilRectangle.gridy = 2;
 		panel_outils.add(btnOutilRectangle, gbc_btnOutilRectangle);
 		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
+		
+	}
+
+	public JButton getLigne() {
+		return ligne;
+	}
+
+	public void setLigne(JButton ligne) {
+		this.ligne = ligne;
+	}
+
+	public JButton getRectangle() {
+		return rectangle;
+	}
+
+	public void setRectangle(JButton rectangle) {
+		this.rectangle = rectangle;
 	}
 
 }

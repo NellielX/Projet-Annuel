@@ -31,10 +31,13 @@ import vue.VueParametres;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JButton;
+
+import modele.Dessin;
 
 import java.awt.SystemColor;
 import java.io.File;
@@ -45,26 +48,28 @@ import java.util.Set;
 
 public class New_vue_Dessin extends JFrame {
 
+	private Dessin d;
+	private PanelDessin pde;
 	private JPanel contentPane;
 	public static JPanel panel_plugin_couleurs = new JPanel();
 	public static JPanel panel_pour_outils = new JPanel();
-//	PanelOutil outil = new PanelOutil(null);
+	private PanelOutil outil ;
 	
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					New_vue_Dessin frame = new New_vue_Dessin();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					New_vue_Dessin frame = new New_vue_Dessin();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -72,10 +77,9 @@ public class New_vue_Dessin extends JFrame {
 		setTitle("Everything in your Hands - Dessin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 615);
-	     int width = 50;
-	     int height = 50;
-	     Dimension dim = new Dimension(width, height);
-	     
+	    int width = 50;
+	    int height = 50;
+	    Dimension dim = new Dimension(width, height);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -86,6 +90,19 @@ public class New_vue_Dessin extends JFrame {
 		
 		//Bouton nouveau
 		JMenuItem mntmNouveau = new JMenuItem("Nouveau");
+		mntmNouveau.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(d==null){
+					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
+				    outil = new PanelOutil(d);
+				    System.out.println("Dessin crée");
+				}
+				else{
+					System.out.println("Un dessin est en cours. Veuillez quitter avant d'en lancer un nouveau");
+				}
+			}
+		});
 		mnMenu.add(mntmNouveau);
 		
 		//Bouton ouvrir
@@ -222,6 +239,8 @@ public class New_vue_Dessin extends JFrame {
 		
 		//Jpanel dessin
 		JPanel panel_dessin = new JPanel();
+		pde = new PanelDessin(d);
+		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_dessin.setBackground(Color.WHITE);
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
@@ -397,7 +416,7 @@ public class New_vue_Dessin extends JFrame {
 		//Jpanel pour inclure les outils
 		panel_pour_outils.setBackground(Color.BLUE);
 		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
-		gbc_panel_pour_outils.gridheight = 10;
+		gbc_panel_pour_outils.gridheight = 6;
 		gbc_panel_pour_outils.insets = new Insets(0, 10, 5, 10);
 		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_outils.gridx = 2;

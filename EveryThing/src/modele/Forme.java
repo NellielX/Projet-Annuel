@@ -33,6 +33,10 @@ public abstract class Forme implements Shape{
 		return tabPoints;
 	}
 	
+	public void init(Point2D[] tabPoints){
+		this.tabPoints = tabPoints;
+	}
+	
 	public void setTabPoints(Point2D[] tabPoints) {
 		compteurPoint = 0;
 		for(int i=0; i<tabPoints.length; i++){
