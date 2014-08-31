@@ -1,5 +1,7 @@
 package modele;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Area;
 import java.util.Vector;
 
@@ -38,7 +40,17 @@ public class Calque extends Area {
 		this.id = id;
 	}
 	
-	public void paint() {
-		
+	public void paint(Graphics2D g) {
+		for(Forme element : this.getContenuList()){
+			element.paintComponent(g);
+		}
+	}
+
+	public Vector<Forme> getContenuList() {
+		return contenuList;
+	}
+
+	public void setContenuList(Vector<Forme> contenuList) {
+		this.contenuList = contenuList;
 	}
 }

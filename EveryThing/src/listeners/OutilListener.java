@@ -5,12 +5,13 @@ import java.awt.event.MouseListener;
 
 import vue.PanelOutil;
 import modele.Dessin;
+import modele.Ligne;
+import modele.Rectangle;
 
 public class OutilListener implements MouseListener{
 	
 	private Dessin d;
 	private PanelOutil po;
-	
 	
 	public OutilListener(PanelOutil panelOutil, Dessin draw) {
 		// TODO Auto-generated constructor stub
@@ -19,9 +20,16 @@ public class OutilListener implements MouseListener{
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource()=="ligne"){
+			Ligne l = new Ligne();
+			d.getCalqueCourant(d.getCalqueCourant()).addForme(l);
+			d.setFormeCourante(l);
+		}
+		else if(e.getSource()=="rectangle"){
+			d.getCalqueCourant(d.getCalqueCourant()).addForme(new Rectangle());
+		}
 	}
 
 	@Override

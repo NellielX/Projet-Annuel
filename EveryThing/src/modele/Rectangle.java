@@ -1,78 +1,100 @@
 package modele;
 
 import java.awt.Color;
+import java.awt.geom.AffineTransform;
+import java.awt.geom.PathIterator;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
-public class Rectangle extends Rectangle2D{
+public class Rectangle extends Forme{
 	
-	private Point2D p1;
-	private Point2D p2;
-	private Point2D p3;
-	private Point2D p4;
 	private Color couleurTrait ;
 	private Color couleurFond ;
+	
+	public Rectangle(Point2D[] tabPoints, Color ct, Color cf){
+		setTabPoints(tabPoints);
+		setCouleurTrait(ct);
+		setCouleurFond(cf);
+	}
 
-	@Override
-	public Rectangle2D createIntersection(Rectangle2D arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public Rectangle() {
+		setTabPoints(new Point2D[4]);
+	}
+
+	public Color getCouleurFond() {
+		return couleurFond;
+	}
+
+	public void setCouleurFond(Color couleurFond) {
+		this.couleurFond = couleurFond;
+	}
+
+	public Color getCouleurTrait() {
+		return couleurTrait;
+	}
+
+	public void setCouleurTrait(Color couleurTrait) {
+		this.couleurTrait = couleurTrait;
 	}
 
 	@Override
-	public Rectangle2D createUnion(Rectangle2D arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int outcode(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setRect(double arg0, double arg1, double width, double height) {
-		// TODO Auto-generated method stub
-			
-	}
-
-	@Override
-	public double getHeight() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getWidth() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getX() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public double getY() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isEmpty() {
+	public boolean contains(Point2D p) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	public void setFondColor(Color c){
-		this.couleurFond = c;
+
+	@Override
+	public boolean contains(Rectangle2D r) {
+		// TODO Auto-generated method stub
+		return false;
 	}
-	
-	public void setBorderColor(Color c){
-		this.couleurTrait = c;
+
+	@Override
+	public boolean contains(double x, double y) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean contains(double x, double y, double w, double h) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public java.awt.Rectangle getBounds() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rectangle2D getBounds2D() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PathIterator getPathIterator(AffineTransform at) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PathIterator getPathIterator(AffineTransform at, double flatness) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean intersects(Rectangle2D r) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean intersects(double x, double y, double w, double h) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

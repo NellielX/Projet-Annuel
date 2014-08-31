@@ -2,6 +2,7 @@ package listeners;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.geom.Point2D;
 
 import vue.PanelDessin;
 import vue.PanelOutil;
@@ -9,22 +10,23 @@ import modele.Dessin;
 
 public class PanelDessinMouseListener implements MouseListener{
 
-	private Dessin draw;
-	private PanelDessin view;
+	private Dessin d;
+	private PanelDessin v;
 	
-	public PanelDessinMouseListener(PanelDessin panelDessin, Dessin d) {
+	public PanelDessinMouseListener(PanelDessin v, Dessin d) {
 		// TODO Auto-generated constructor stub
-		draw = d;
-		view = panelDessin;
+		this.d = d;
+		this.v = v;
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("clic");
-		//faudra faire un traitement pour chaque bouton de forme comme paint
-		
-		
+		if(d.getFormeCourante() != null && e.getClickCount()==1){
+			Point2D p = null;
+			p.setLocation((int)e.getX(), (int)e.getY());
+			d.getFormeCourante().ajouterPoint(p);
+		}
 	}
 
 	@Override
@@ -53,19 +55,19 @@ public class PanelDessinMouseListener implements MouseListener{
 	}
 
 	public PanelDessin getView() {
-		return view;
+		return v;
 	}
 
-	public void setView(PanelDessin view) {
-		this.view = view;
+	public void setView(PanelDessin v) {
+		this.v = v;
 	}
 
 	public Dessin getDraw() {
-		return draw;
+		return d;
 	}
 
-	public void setDraw(Dessin draw) {
-		this.draw = draw;
+	public void setDraw(Dessin d) {
+		this.d = d;
 	}
 
 }
