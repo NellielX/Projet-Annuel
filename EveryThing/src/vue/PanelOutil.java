@@ -25,6 +25,10 @@ public class PanelOutil extends JPanel{
 		
 		add(ligne);
 		add(rectangle);
+		
+		vue_principale.New_vue_Dessin.panel_pour_outils.add(ligne);
+		vue_principale.New_vue_Dessin.panel_pour_outils.add(rectangle);
+		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
 	}
 
 }

@@ -23,6 +23,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import vue.PanelDessin;
+import vue.PanelOutil;
 import vue.VueInformations;
 import vue.VueParametres;
 
@@ -45,22 +47,24 @@ public class New_vue_Dessin extends JFrame {
 
 	private JPanel contentPane;
 	public static JPanel panel_plugin_couleurs = new JPanel();
+	public static JPanel panel_pour_outils = new JPanel();
+//	PanelOutil outil = new PanelOutil(null);
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					New_vue_Dessin frame = new New_vue_Dessin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					New_vue_Dessin frame = new New_vue_Dessin();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 	/**
 	 * Create the frame.
 	 */
@@ -227,9 +231,9 @@ public class New_vue_Dessin extends JFrame {
 		contentPane.add(panel_couleurs, BorderLayout.EAST);
 		GridBagLayout gbl_panel_couleurs = new GridBagLayout();
 		gbl_panel_couleurs.columnWidths = new int[] {0, 0, 180};
-		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0, 0};
+		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0, 0, 0};
 		gbl_panel_couleurs.columnWeights = new double[]{0.0, 1.0, 1.0};
-		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_couleurs.setLayout(gbl_panel_couleurs);
 		
 		//Jpanel pour les bouton de couleurs
@@ -389,6 +393,16 @@ public class New_vue_Dessin extends JFrame {
 		gbc_panel_plugin_couleurs.gridx = 2;
 		gbc_panel_plugin_couleurs.gridy = 1;
 		panel_couleurs.add(panel_plugin_couleurs, gbc_panel_plugin_couleurs);
+		
+		//Jpanel pour inclure les outils
+		panel_pour_outils.setBackground(Color.BLUE);
+		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
+		gbc_panel_pour_outils.gridheight = 10;
+		gbc_panel_pour_outils.insets = new Insets(0, 10, 5, 10);
+		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
+		gbc_panel_pour_outils.gridx = 2;
+		gbc_panel_pour_outils.gridy = 1;
+		panel_couleurs.add(panel_pour_outils, gbc_panel_pour_outils);
 	}
 
 }
