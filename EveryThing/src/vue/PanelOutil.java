@@ -53,8 +53,6 @@ public class PanelOutil extends JPanel{
 		gbl_panel_outils.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_outils.setLayout(gbl_panel_outils);
 		
-		vue_principale.New_vue_Dessin.panel_pour_outils.add(panel_outils);
-		
 		//Jbutton rectangle
 		JButton btnOutilRectangle = new JButton("");
 		btnOutilRectangle.setPreferredSize(dim);	
@@ -84,6 +82,8 @@ public class PanelOutil extends JPanel{
 		gbc_btnOutilRectangle.gridx = 6;
 		gbc_btnOutilRectangle.gridy = 5;
 		panel_outils.add(btnOutilRectangle, gbc_btnOutilRectangle);
+		
+		vue_principale.New_vue_Dessin.panel_pour_outils.add(panel_outils);
 		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
 	}
 
