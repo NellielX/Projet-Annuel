@@ -416,13 +416,13 @@ public class New_vue_Dessin extends JFrame {
 		panel_couleurs.add(panel_plugin_couleurs, gbc_panel_plugin_couleurs);
 		
 		//Jpanel pour inclure les outils
-		panel_pour_outils.setBackground(Color.BLUE);
+		panel_pour_outils.setBackground(SystemColor.menu);
 		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
-		gbc_panel_pour_outils.gridheight = 6;
-		gbc_panel_pour_outils.insets = new Insets(0, 10, 5, 10);
+		gbc_panel_pour_outils.gridheight = 10;
+		gbc_panel_pour_outils.insets = new Insets(0, 10, 0, 10);
 		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_outils.gridx = 2;
-		gbc_panel_pour_outils.gridy = 1;
+		gbc_panel_pour_outils.gridy = 3;
 		panel_couleurs.add(panel_pour_outils, gbc_panel_pour_outils);
 	}
 
