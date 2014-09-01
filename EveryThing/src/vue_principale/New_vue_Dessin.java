@@ -95,6 +95,7 @@ public class New_vue_Dessin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				if(d==null){
+					pde.setBackground(Color.WHITE);
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
 				    outil = new PanelOutil(d);
 				    System.out.println("Dessin crée");
@@ -239,12 +240,12 @@ public class New_vue_Dessin extends JFrame {
 		JPanel panel_dessin = new JPanel();
 		pde = new PanelDessin(d);
 		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
-		flowLayout.setVgap(265);
+		flowLayout.setVgap(268);
 		flowLayout.setHgap(370);
-		pde.setBackground(Color.WHITE);
+//		pde.setBackground(Color.WHITE);
 		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel_dessin.setBackground(Color.WHITE);
+//		panel_dessin.setBackground(Color.WHITE);
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 		
 		//Jpanel barre 
