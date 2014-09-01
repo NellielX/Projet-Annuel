@@ -27,7 +27,7 @@ public class PanelDessin extends JPanel {
 	
 	public void paintComponent(Graphics2D g){
 		//Dessine le fond du panel en blanc
-		g.setBackground(Color.WHITE);
+		g.setColor(Color.WHITE);
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
 		//Dessine l'ensemble des axes en commencant par le dernier
