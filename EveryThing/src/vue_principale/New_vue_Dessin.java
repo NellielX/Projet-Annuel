@@ -23,6 +23,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import vue.PanelCalque;
 import vue.PanelDessin;
 import vue.PanelOutil;
 import vue.VueInformations;
@@ -53,23 +54,25 @@ public class New_vue_Dessin extends JFrame {
 	private JPanel contentPane;
 	public static JPanel panel_plugin_couleurs = new JPanel();
 	public static JPanel panel_pour_outils = new JPanel();
+	public static JPanel panel_pour_calques = new JPanel();
 	private PanelOutil outil ;
+	private PanelCalque calques;
 	
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					New_vue_Dessin frame = new New_vue_Dessin();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					New_vue_Dessin frame = new New_vue_Dessin();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * Create the frame.
 	 */
@@ -97,7 +100,8 @@ public class New_vue_Dessin extends JFrame {
 				if(d==null){
 					pde.setBackground(Color.WHITE);
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
-				    outil = new PanelOutil(d);
+					outil = new PanelOutil(d);
+				    calques = new PanelCalque(d);
 				    System.out.println("Dessin crée");
 				}
 				else{

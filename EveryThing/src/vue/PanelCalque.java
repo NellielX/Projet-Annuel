@@ -1,6 +1,11 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,80 +14,61 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import listeners.CalqueListener;
+import listeners.OutilListener;
 import modele.Calque;
 import modele.Dessin;
 
 public class PanelCalque extends JPanel {
 	
 	private Dessin d;
-	
-	private JButton ajouterCalque;
-	private JButton supprimerCalque;
-	private JButton changerCalque_superieur;
-	private JButton changerCalque_inferieur;
 	private JTextField idCalqueCourant;
-	private BorderLayout bl;
 	
 	public PanelCalque(Dessin d){
-		bl = new BorderLayout();
-		setLayout(bl);
-		
-		ajouterCalque = new JButton("Ajouter");
-		supprimerCalque = new JButton("Supprimer");
-		changerCalque_superieur = new JButton("+");
-		changerCalque_inferieur = new JButton("-");
-		idCalqueCourant = new JTextField();
-		
-		ajouterCalque.addActionListener(new CalqueListener(this, d) {
-		});
-		supprimerCalque.addActionListener(new CalqueListener(this, d) { 
-		});
-		changerCalque_superieur.addActionListener(new CalqueListener(this, d) {
-		});
-		changerCalque_inferieur.addActionListener(new CalqueListener(this, d) {
-		});
-		
-		add(changerCalque_superieur, BorderLayout.NORTH);
-		add(changerCalque_inferieur, BorderLayout.SOUTH);
-		add(ajouterCalque, BorderLayout.WEST);
-		add(supprimerCalque, BorderLayout.EAST);
-		add(idCalqueCourant, BorderLayout.CENTER);
+		int width = 140;
+	    int height = 50;
+	    Dimension dim = new Dimension(width, height);
 		
 		setVisible(true);
+		JPanel panel_calques = new JPanel();
+		panel_calques.setBackground(SystemColor.menu);
+		
+		BorderLayout bl = new BorderLayout();
+		panel_calques.setLayout(bl);
+		
+		vue_principale.New_vue_Dessin.panel_pour_calques.add(panel_calques);
+				
+		//Jbutton ajouterCalque
+		JButton ajouterCalque = new JButton("Ajouter");
+		ajouterCalque.setPreferredSize(dim);	
+		ajouterCalque.addActionListener(new CalqueListener(this, d));
+		panel_calques.add(ajouterCalque, BorderLayout.NORTH);
+		
+		//JButton supprimerCalque
+		JButton supprimerCalque = new JButton("Supprimer");
+		supprimerCalque.setPreferredSize(dim);
+		supprimerCalque.addActionListener(new CalqueListener(this, d));
+		panel_calques.add(supprimerCalque, BorderLayout.SOUTH);
+		
+		//JButton calqueInferieur
+		JButton calqueInferieur = new JButton("-");
+		calqueInferieur.setPreferredSize(dim);
+		calqueInferieur.addActionListener(new CalqueListener(this, d));
+		panel_calques.add(calqueInferieur, BorderLayout.WEST);
+		
+		//JButton calqueSuperieur
+		JButton calqueSuperieur = new JButton("+");
+		calqueSuperieur.setPreferredSize(dim);
+		calqueSuperieur.addActionListener(new CalqueListener(this, d));
+		panel_calques.add(calqueSuperieur, BorderLayout.EAST);
+		
+		//JTextField idCalqueCourant
+		idCalqueCourant = new JTextField(d.getIdCalqueCourant());
+		idCalqueCourant.setPreferredSize(dim);
+		panel_calques.add(idCalqueCourant, BorderLayout.CENTER);
+
+		vue_principale.New_vue_Dessin.panel_pour_calques.revalidate();
 	}
 	
-	public JButton getAjouterCalque() {
-		return ajouterCalque;
-	}
-
-	public void setAjouterCalque(JButton ajouterCalque) {
-		this.ajouterCalque = ajouterCalque;
-	}
-
-	public JButton getSupprimerCalque() {
-		return supprimerCalque;
-	}
-
-	public void setSupprimerCalque(JButton supprimerCalque) {
-		this.supprimerCalque = supprimerCalque;
-	}
-
-	public JButton getChangerCalque_superieur() {
-		return changerCalque_superieur;
-	}
-
-	public void setChangerCalque_superieur(JButton changerCalque_superieur) {
-		this.changerCalque_superieur = changerCalque_superieur;
-	}
-
-	public JButton getChangerCalque_inferieur() {
-		return changerCalque_inferieur;
-	}
-
-	public void setChangerCalque_inferieur(JButton changerCalque_inferieur) {
-		this.changerCalque_inferieur = changerCalque_inferieur;
-	}
-
 	public JTextField getIdCalqueCourant() {
 		return idCalqueCourant;
 	}
@@ -90,6 +76,4 @@ public class PanelCalque extends JPanel {
 	public void setIdCalqueCourant(JTextField idCalqueCourant) {
 		this.idCalqueCourant = idCalqueCourant;
 	}
-	
-
 }
