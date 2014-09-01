@@ -216,17 +216,16 @@ public class New_vue_Dessin extends JFrame {
 				choix.setMultiSelectionEnabled(false);
 				//Changement du bouton et du commentaire de la fenêtre de suppression de plugin
 				choix.setApproveButtonText("Supprimer");
-				choix.setApproveButtonToolTipText("Suppression du plugin selectionner");
-				
+				choix.setApproveButtonToolTipText("Suppression du plugin selectionner");			 
 				int retour=choix.showOpenDialog(parent);
-				if(retour==JFileChooser.APPROVE_OPTION){
-				   try {
-					   controleur.GestionPlugin.relance_moi(choix.getSelectedFile().getName());
-					plugin.PluginsLoader pl = new plugin.PluginsLoader();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}   
-				}	
+				if(retour==JFileChooser.APPROVE_OPTION){	
+					   try {	
+						controleur.GestionPlugin.relance_moi(choix.getSelectedFile().getName());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}   
+				   
+				}				  
 			}
 		});
 		
