@@ -39,7 +39,7 @@ public class PanelOutil extends JPanel{
 //		vue_principale.New_vue_Dessin.panel_pour_outils.add(rectangle);
 //		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
 		
-		int width = 150;
+		int width = 140;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
 	    
