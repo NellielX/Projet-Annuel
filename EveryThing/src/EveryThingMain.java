@@ -1,5 +1,9 @@
 import java.awt.EventQueue;
 
+import javax.swing.JOptionPane;
+
+import controleur.GestionPlugin;
+
 //import listeners.PanelDessinListener;
 //import modele.Dessin;
 //
@@ -11,19 +15,26 @@ import vue_principale.New_vue_Dessin;
 public class EveryThingMain {
 
 	public static void main(String[] args) {
+
+		if (args.length > 0){
+			try {
+				JOptionPane.showMessageDialog(null, "Tchoutchou");
+				GestionPlugin.deleteFile(args[0]);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		Runnable r = new Runnable() {
 			public void run(){
-//				Controller c = new Controller();
-//				PanelDessinListener pdl = new PanelDessinListener(null, null);
 				New_vue_Dessin vuePrincipale = new New_vue_Dessin();
-//				c.addListener(pdl);
-//				Dessin d = new Dessin();
-//				pdl.setDraw(d);
 				vuePrincipale.setVisible(true);
 			}
 		};
 		EventQueue.invokeLater(r);
+		//Chargement des plugins
 		plugin.PluginsLoader pl = new plugin.PluginsLoader();
+		
 	}
-
 }
+

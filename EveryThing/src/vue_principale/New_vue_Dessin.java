@@ -55,21 +55,21 @@ public class New_vue_Dessin extends JFrame {
 	public static JPanel panel_pour_outils = new JPanel();
 	private PanelOutil outil ;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					New_vue_Dessin frame = new New_vue_Dessin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					New_vue_Dessin frame = new New_vue_Dessin();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 	/**
 	 * Create the frame.
 	 */
@@ -221,9 +221,7 @@ public class New_vue_Dessin extends JFrame {
 				int retour=choix.showOpenDialog(parent);
 				if(retour==JFileChooser.APPROVE_OPTION){
 				   try {
-					controleur.GestionPlugin.deleteFile(choix.getSelectedFile().getAbsolutePath());
-					panel_plugin_couleurs.removeAll();
-					panel_plugin_couleurs.repaint();
+					   controleur.GestionPlugin.relance_moi(choix.getSelectedFile().getName());
 					plugin.PluginsLoader pl = new plugin.PluginsLoader();
 				} catch (Exception e) {
 					e.printStackTrace();
