@@ -77,6 +77,7 @@ public class New_vue_Dessin extends JFrame {
 		setTitle("Everything in your Hands - Dessin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 615);
+		setResizable(false);
 	    int width = 50;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
@@ -237,6 +238,10 @@ public class New_vue_Dessin extends JFrame {
 		//Jpanel dessin
 		JPanel panel_dessin = new JPanel();
 		pde = new PanelDessin(d);
+		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
+		flowLayout.setVgap(265);
+		flowLayout.setHgap(370);
+		pde.setBackground(Color.WHITE);
 		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_dessin.setBackground(Color.WHITE);
