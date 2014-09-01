@@ -1,15 +1,6 @@
 import java.awt.EventQueue;
-
 import javax.swing.JOptionPane;
-
 import controleur.GestionPlugin;
-
-//import listeners.PanelDessinListener;
-//import modele.Dessin;
-//
-//import com.leapmotion.leap.Controller;
-//
-//import plugin.PluginsLoader;
 import vue_principale.New_vue_Dessin;
 
 public class EveryThingMain {
@@ -18,7 +9,6 @@ public class EveryThingMain {
 
 		if (args.length > 0){
 			try {
-				JOptionPane.showMessageDialog(null, "Tchoutchou");
 				GestionPlugin.deleteFile(args[0]);
 			} catch (Exception e) {
 				e.printStackTrace();
