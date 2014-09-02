@@ -24,6 +24,7 @@ public class PanelCalque extends JPanel {
 	private JTextField idCalqueCourant;
 	
 	public PanelCalque(Dessin d){
+		this.d=d;
 		int width = 100;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
@@ -42,29 +43,34 @@ public class PanelCalque extends JPanel {
 		//Jbutton ajouterCalque
 		JButton ajouterCalque = new JButton("Ajouter");
 		ajouterCalque.setPreferredSize(dim);	
-		ajouterCalque.addActionListener(new CalqueListener(this, d));
+		ajouterCalque.addActionListener(new CalqueListener(this, this.d));
 		panel_calques.add(ajouterCalque, BorderLayout.NORTH);
 		
 		//JButton supprimerCalque
 		JButton supprimerCalque = new JButton("Supprimer");
 		supprimerCalque.setPreferredSize(dim);
-		supprimerCalque.addActionListener(new CalqueListener(this, d));
+		supprimerCalque.addActionListener(new CalqueListener(this, this.d));
 		panel_calques.add(supprimerCalque, BorderLayout.SOUTH);
 		
 		//JButton calqueInferieur
 		JButton calqueInferieur = new JButton("-");
 		calqueInferieur.setPreferredSize(dim2);
-		calqueInferieur.addActionListener(new CalqueListener(this, d));
+		calqueInferieur.addActionListener(new CalqueListener(this, this.d));
 		panel_calques.add(calqueInferieur, BorderLayout.WEST);
 		
 		//JButton calqueSuperieur
 		JButton calqueSuperieur = new JButton("+");
 		calqueSuperieur.setPreferredSize(dim2);
-		calqueSuperieur.addActionListener(new CalqueListener(this, d));
+		calqueSuperieur.addActionListener(new CalqueListener(this, this.d));
 		panel_calques.add(calqueSuperieur, BorderLayout.EAST);
 		
 		//JTextField idCalqueCourant
-		idCalqueCourant = new JTextField(d.getIdCalqueCourant());
+		try{
+			idCalqueCourant = new JTextField(d.getIdCalqueCourant());
+		}
+		catch(NullPointerException e){
+			idCalqueCourant = new JTextField();
+		}
 		idCalqueCourant.setPreferredSize(dim);
 		panel_calques.add(idCalqueCourant, BorderLayout.CENTER);
 
@@ -78,5 +84,13 @@ public class PanelCalque extends JPanel {
 
 	public void setIdCalqueCourant(JTextField idCalqueCourant) {
 		this.idCalqueCourant = idCalqueCourant;
+	}
+
+	public Dessin getDessin() {
+		return d;
+	}
+
+	public void setDessin(Dessin d) {
+		this.d = d;
 	}
 }

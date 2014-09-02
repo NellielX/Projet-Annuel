@@ -100,8 +100,8 @@ public class New_vue_Dessin extends JFrame {
 				if(d==null){
 					pde.setBackground(Color.WHITE);
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
-					outil = new PanelOutil(d);
-				    calques = new PanelCalque(d);
+					outil.setDessin(d);
+					calques.setDessin(d);
 				    System.out.println("Dessin crée");
 				}
 				else{
@@ -423,6 +423,7 @@ public class New_vue_Dessin extends JFrame {
 		
 		//Jpanel pour inclure les calques
 		panel_pour_calques.setBackground(Color.RED);
+		outil = new PanelOutil(d);
 		GridBagConstraints gbc_panel_pour_calques = new GridBagConstraints();
 		gbc_panel_pour_calques.gridheight = 6;
 		gbc_panel_pour_calques.insets = new Insets(0, 10, 0, 10);
@@ -433,6 +434,7 @@ public class New_vue_Dessin extends JFrame {
 		
 		//Jpanel pour inclure les outils
 		panel_pour_outils.setBackground(Color.CYAN);
+		calques = new PanelCalque(d);
 		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
 		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_outils.gridheight = 10;

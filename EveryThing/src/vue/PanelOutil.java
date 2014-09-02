@@ -20,10 +20,12 @@ import modele.Dessin;
 
 public class PanelOutil extends JPanel{
 	
+	private Dessin d;
 	private JButton ligne;
 	private JButton rectangle;
 	
-	public PanelOutil(Dessin draw){
+	public PanelOutil(Dessin d){
+		this.d = d;
 		setLayout(new FlowLayout());
 		
 //		ligne = new JButton("Ligne"); //mettre une image apres
@@ -58,13 +60,13 @@ public class PanelOutil extends JPanel{
 		//Jbutton rectangle
 		JButton btnOutilRectangle = new JButton("Rectangle");
 		btnOutilRectangle.setPreferredSize(dim);	
-		btnOutilRectangle.addActionListener(new OutilListener(this, draw));
+		btnOutilRectangle.addActionListener(new OutilListener(this,this.d));
 						
 		//Jbutton ligne
 		JButton btnOutilLigne = new JButton("Ligne");
 		btnOutilLigne.setName("ligne");
 		btnOutilLigne.setPreferredSize(dim);	
-		btnOutilLigne.addActionListener(new OutilListener(this, draw));
+		btnOutilLigne.addActionListener(new OutilListener(this, this.d));
 		GridBagConstraints gbc_btnOutilLigne = new GridBagConstraints();
 		gbc_btnOutilLigne.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOutilLigne.gridx = 5;
@@ -95,6 +97,14 @@ public class PanelOutil extends JPanel{
 
 	public void setRectangle(JButton rectangle) {
 		this.rectangle = rectangle;
+	}
+
+	public Dessin getDessin() {
+		return d;
+	}
+
+	public void setDessin(Dessin d) {
+		this.d = d;
 	}
 
 }
