@@ -52,11 +52,7 @@ public class PanelOutil extends JPanel{
 		gbc_btnOutilLigne.gridx = 5;
 		gbc_btnOutilLigne.gridy = 5;
 		panel_outils.add(btnOutilLigne, gbc_btnOutilLigne);
-		
-		vue_principale.New_vue_Dessin.panel_pour_outils.add(panel_outils);
-		
-		
-				
+			
 		//Jbutton rectangle
 		JButton btnOutilRectangle = new JButton("Rect.");
 		btnOutilRectangle.setPreferredSize(dim);	
@@ -66,6 +62,8 @@ public class PanelOutil extends JPanel{
 		gbc_btnOutilRectangle.gridx = 6;
 		gbc_btnOutilRectangle.gridy = 5;
 		panel_outils.add(btnOutilRectangle, gbc_btnOutilRectangle);
+		
+		vue_principale.New_vue_Dessin.panel_pour_outils.add(panel_outils);
 		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
 		
 	}
