@@ -67,7 +67,6 @@ public class New_vue_Dessin extends JFrame {
 	    int width = 50;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
-		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -228,7 +227,7 @@ public class New_vue_Dessin extends JFrame {
 		pde = new PanelDessin(d);
 		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
 		flowLayout.setVgap(270);
-		flowLayout.setHgap(365);
+		flowLayout.setHgap(370);
 		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
@@ -395,32 +394,32 @@ public class New_vue_Dessin extends JFrame {
 		fl_panel_plugin_couleurs.setHgap(1);
 		panel_plugin_couleurs.setBackground(SystemColor.menu);
 		GridBagConstraints gbc_panel_plugin_couleurs = new GridBagConstraints();
-		gbc_panel_plugin_couleurs.insets = new Insets(0, 0, 200, 0);
 		gbc_panel_plugin_couleurs.fill = GridBagConstraints.BOTH;
 		gbc_panel_plugin_couleurs.gridx = 2;
 		gbc_panel_plugin_couleurs.gridy = 1;
 		panel_couleurs.add(panel_plugin_couleurs, gbc_panel_plugin_couleurs);
 		FlowLayout flowLayout_1 = (FlowLayout) panel_pour_calques.getLayout();
-		flowLayout_1.setHgap(20);
-		flowLayout_1.setVgap(10);
+		flowLayout_1.setHgap(0);
+		flowLayout_1.setVgap(0);
 		
 		//Jpanel pour inclure les calques
-		panel_pour_calques.setBackground(Color.RED);
-		outil = new PanelOutil(d);
+		calques = new PanelCalque(d);
 		GridBagConstraints gbc_panel_pour_calques = new GridBagConstraints();
-		gbc_panel_pour_calques.gridheight = 6;
-		gbc_panel_pour_calques.insets = new Insets(0, 10, 0, 10);
+		gbc_panel_pour_calques.weighty = 3.0;
+		gbc_panel_pour_calques.insets = new Insets(10, 10, 5, 10);
 		gbc_panel_pour_calques.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_calques.gridx = 2;
 		gbc_panel_pour_calques.gridy = 2;
 		panel_couleurs.add(panel_pour_calques, gbc_panel_pour_calques);
+		FlowLayout flowLayout_2 = (FlowLayout) panel_pour_outils.getLayout();
+		flowLayout_2.setVgap(0);
+		flowLayout_2.setHgap(0);
 		
 		//Jpanel pour inclure les outils
-		panel_pour_outils.setBackground(Color.CYAN);
-		calques = new PanelCalque(d);
+		outil = new PanelOutil(d);
 		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
+		gbc_panel_pour_outils.weighty = 3.0;
 		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
-		gbc_panel_pour_outils.gridheight = 10;
 		gbc_panel_pour_outils.insets = new Insets(0, 10, 0, 10);
 		gbc_panel_pour_outils.gridx = 2;
 		gbc_panel_pour_outils.gridy = 13;

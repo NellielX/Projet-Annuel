@@ -27,21 +27,8 @@ public class PanelOutil extends JPanel{
 	public PanelOutil(Dessin d){
 		this.d = d;
 		setLayout(new FlowLayout());
-		
-//		ligne = new JButton("Ligne"); //mettre une image apres
-//		rectangle = new JButton("Rectangle");
-//		
-//		ligne.addMouseListener(new OutilListener(this, draw));
-//		rectangle.addMouseListener(new OutilListener(this, draw));
-//		
-//		add(ligne);
-//		add(rectangle);
-//		
-//		vue_principale.New_vue_Dessin.panel_pour_outils.add(ligne);
-//		vue_principale.New_vue_Dessin.panel_pour_outils.add(rectangle);
-//		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
-		
-		int width = 140;
+				
+		int width = 75;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
 	    
@@ -54,13 +41,6 @@ public class PanelOutil extends JPanel{
 		gbl_panel_outils.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_outils.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_outils.setLayout(gbl_panel_outils);
-		
-		
-				
-		//Jbutton rectangle
-		JButton btnOutilRectangle = new JButton("Rectangle");
-		btnOutilRectangle.setPreferredSize(dim);	
-		btnOutilRectangle.addActionListener(new OutilListener(this,this.d));
 						
 		//Jbutton ligne
 		JButton btnOutilLigne = new JButton("Ligne");
@@ -72,13 +52,20 @@ public class PanelOutil extends JPanel{
 		gbc_btnOutilLigne.gridx = 5;
 		gbc_btnOutilLigne.gridy = 5;
 		panel_outils.add(btnOutilLigne, gbc_btnOutilLigne);
-		GridBagConstraints gbc_btnOutilRectangle = new GridBagConstraints();
-		gbc_btnOutilRectangle.insets = new Insets(0, 0, 5, 5);
-		gbc_btnOutilRectangle.gridx = 5;
-		gbc_btnOutilRectangle.gridy = 6;
-		panel_outils.add(btnOutilRectangle, gbc_btnOutilRectangle);
 		
 		vue_principale.New_vue_Dessin.panel_pour_outils.add(panel_outils);
+		
+		
+				
+		//Jbutton rectangle
+		JButton btnOutilRectangle = new JButton("Rect.");
+		btnOutilRectangle.setPreferredSize(dim);	
+		btnOutilRectangle.addActionListener(new OutilListener(this,this.d));
+		GridBagConstraints gbc_btnOutilRectangle = new GridBagConstraints();
+		gbc_btnOutilRectangle.insets = new Insets(0, 0, 5, 5);
+		gbc_btnOutilRectangle.gridx = 6;
+		gbc_btnOutilRectangle.gridy = 5;
+		panel_outils.add(btnOutilRectangle, gbc_btnOutilRectangle);
 		vue_principale.New_vue_Dessin.panel_pour_outils.revalidate();
 		
 	}

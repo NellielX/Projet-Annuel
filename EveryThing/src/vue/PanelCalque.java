@@ -25,12 +25,12 @@ public class PanelCalque extends JPanel {
 	
 	public PanelCalque(Dessin d){
 		this.d=d;
-		int width = 100;
+		int width = 120;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
 		
 		int width2 = 20;
-	    int height2 = 50;
+	    int height2 = 150;
 	    Dimension dim2 = new Dimension(width2, height2);
 	    
 		setVisible(true);
