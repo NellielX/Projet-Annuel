@@ -58,24 +58,24 @@ public class New_vue_Dessin extends JFrame {
 	private PanelOutil outil ;
 	private PanelCalque calques;
 	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					New_vue_Dessin frame = new New_vue_Dessin();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	/**
-	 * Create the frame.
-	 */
+//	/**
+//	 * Launch the application.
+//	 */
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					New_vue_Dessin frame = new New_vue_Dessin();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
+//	/**
+//	 * Create the frame.
+//	 */
 	public New_vue_Dessin() {
 		setTitle("Everything in your Hands - Dessin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -255,9 +255,9 @@ public class New_vue_Dessin extends JFrame {
 		contentPane.add(panel_couleurs, BorderLayout.EAST);
 		GridBagLayout gbl_panel_couleurs = new GridBagLayout();
 		gbl_panel_couleurs.columnWidths = new int[] {0, 0, 180};
-		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0, 0, 0};
+		gbl_panel_couleurs.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_panel_couleurs.columnWeights = new double[]{0.0, 1.0, 1.0};
-		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_couleurs.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel_couleurs.setLayout(gbl_panel_couleurs);
 		
 		//Jpanel pour les bouton de couleurs
@@ -417,15 +417,28 @@ public class New_vue_Dessin extends JFrame {
 		gbc_panel_plugin_couleurs.gridx = 2;
 		gbc_panel_plugin_couleurs.gridy = 1;
 		panel_couleurs.add(panel_plugin_couleurs, gbc_panel_plugin_couleurs);
+		FlowLayout flowLayout_1 = (FlowLayout) panel_pour_calques.getLayout();
+		flowLayout_1.setHgap(20);
+		flowLayout_1.setVgap(10);
+		
+		//Jpanel pour inclure les calques
+		panel_pour_calques.setBackground(Color.RED);
+		GridBagConstraints gbc_panel_pour_calques = new GridBagConstraints();
+		gbc_panel_pour_calques.gridheight = 6;
+		gbc_panel_pour_calques.insets = new Insets(0, 10, 0, 10);
+		gbc_panel_pour_calques.fill = GridBagConstraints.BOTH;
+		gbc_panel_pour_calques.gridx = 2;
+		gbc_panel_pour_calques.gridy = 2;
+		panel_couleurs.add(panel_pour_calques, gbc_panel_pour_calques);
 		
 		//Jpanel pour inclure les outils
-		panel_pour_outils.setBackground(SystemColor.menu);
+		panel_pour_outils.setBackground(Color.CYAN);
 		GridBagConstraints gbc_panel_pour_outils = new GridBagConstraints();
+		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_outils.gridheight = 10;
 		gbc_panel_pour_outils.insets = new Insets(0, 10, 0, 10);
-		gbc_panel_pour_outils.fill = GridBagConstraints.BOTH;
 		gbc_panel_pour_outils.gridx = 2;
-		gbc_panel_pour_outils.gridy = 3;
+		gbc_panel_pour_outils.gridy = 13;
 		panel_couleurs.add(panel_pour_outils, gbc_panel_pour_outils);
 	}
 

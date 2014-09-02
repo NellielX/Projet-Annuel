@@ -24,19 +24,21 @@ public class PanelCalque extends JPanel {
 	private JTextField idCalqueCourant;
 	
 	public PanelCalque(Dessin d){
-		int width = 140;
+		int width = 100;
 	    int height = 50;
 	    Dimension dim = new Dimension(width, height);
 		
+		int width2 = 20;
+	    int height2 = 50;
+	    Dimension dim2 = new Dimension(width2, height2);
+	    
 		setVisible(true);
 		JPanel panel_calques = new JPanel();
 		panel_calques.setBackground(SystemColor.menu);
 		
 		BorderLayout bl = new BorderLayout();
 		panel_calques.setLayout(bl);
-		
-		vue_principale.New_vue_Dessin.panel_pour_calques.add(panel_calques);
-				
+						
 		//Jbutton ajouterCalque
 		JButton ajouterCalque = new JButton("Ajouter");
 		ajouterCalque.setPreferredSize(dim);	
@@ -51,13 +53,13 @@ public class PanelCalque extends JPanel {
 		
 		//JButton calqueInferieur
 		JButton calqueInferieur = new JButton("-");
-		calqueInferieur.setPreferredSize(dim);
+		calqueInferieur.setPreferredSize(dim2);
 		calqueInferieur.addActionListener(new CalqueListener(this, d));
 		panel_calques.add(calqueInferieur, BorderLayout.WEST);
 		
 		//JButton calqueSuperieur
 		JButton calqueSuperieur = new JButton("+");
-		calqueSuperieur.setPreferredSize(dim);
+		calqueSuperieur.setPreferredSize(dim2);
 		calqueSuperieur.addActionListener(new CalqueListener(this, d));
 		panel_calques.add(calqueSuperieur, BorderLayout.EAST);
 		
@@ -66,6 +68,7 @@ public class PanelCalque extends JPanel {
 		idCalqueCourant.setPreferredSize(dim);
 		panel_calques.add(idCalqueCourant, BorderLayout.CENTER);
 
+		vue_principale.New_vue_Dessin.panel_pour_calques.add(panel_calques);
 		vue_principale.New_vue_Dessin.panel_pour_calques.revalidate();
 	}
 	
