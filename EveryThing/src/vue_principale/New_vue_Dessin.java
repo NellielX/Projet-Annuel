@@ -58,24 +58,7 @@ public class New_vue_Dessin extends JFrame {
 	private PanelOutil outil ;
 	private PanelCalque calques;
 	
-//	/**
-//	 * Launch the application.
-//	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					New_vue_Dessin frame = new New_vue_Dessin();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-//	/**
-//	 * Create the frame.
-//	 */
+	
 	public New_vue_Dessin() {
 		setTitle("Everything in your Hands - Dessin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -244,8 +227,8 @@ public class New_vue_Dessin extends JFrame {
 		JPanel panel_dessin = new JPanel();
 		pde = new PanelDessin(d);
 		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
-		flowLayout.setVgap(268);
-		flowLayout.setHgap(370);
+		flowLayout.setVgap(270);
+		flowLayout.setHgap(365);
 		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
