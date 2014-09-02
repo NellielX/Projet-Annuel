@@ -227,7 +227,7 @@ public class New_vue_Dessin extends JFrame {
 		pde = new PanelDessin(d);
 		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
 		flowLayout.setVgap(270);
-		flowLayout.setHgap(370);
+		flowLayout.setHgap(375);
 		panel_dessin.add(pde);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
