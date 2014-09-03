@@ -166,7 +166,7 @@ public class New_vue_Dessin extends JFrame {
 				//Fenetre pour choix du plugin
 				JFileChooser choix = new JFileChooser();
 				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
-				
+				choix.setAcceptAllFileFilterUsed(false);
 				//Filtrage des points jar
 				FileNameExtensionFilter filtre = new FileNameExtensionFilter("Plugin (.jar)", "jar");
 				choix.setFileFilter(filtre);
@@ -196,6 +196,7 @@ public class New_vue_Dessin extends JFrame {
 				//Fenetre pour choix du plugin
 				JFileChooser choix = new JFileChooser();
 				choix.setFileSelectionMode(JFileChooser.FILES_ONLY);
+				choix.setAcceptAllFileFilterUsed(false);
 				//Dossier par defaut
 				choix.setCurrentDirectory(new File(".." + File.separator + "Everything" + File.separator + "plugin"));
 				//Filtrage des points jar
@@ -208,7 +209,7 @@ public class New_vue_Dessin extends JFrame {
 				int retour=choix.showOpenDialog(parent);
 				if(retour==JFileChooser.APPROVE_OPTION){	
 					   try {	
-						controleur.GestionPlugin.relance_moi(choix.getSelectedFile().getName());
+						   controleur.GestionPlugin.relance_moi(choix.getSelectedFile().getAbsolutePath());
 					} catch (Exception e) {
 						e.printStackTrace();
 					}   

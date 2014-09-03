@@ -24,6 +24,7 @@ public class GestionPlugin {
 	 * Copie le fichier source dans le fichier resultat Retourne vrai si cela réussit
 	 * @param source
 	 * @param destination
+	 * @author marzilli_g
 	 * @return true ou false
 	 */
 	public static boolean copyFile(File source, File destination) {
@@ -69,6 +70,7 @@ public class GestionPlugin {
 	 * Fonction pour supprimer un plugin
 	 * @param filename
 	 * @return
+	 * @author marzilli_g
 	 * @throws Exception
 	 */
 	public static boolean deleteFile(String filename) throws Exception {
@@ -114,11 +116,10 @@ public class GestionPlugin {
 		   }
 		}
 	
-	
-	//TODO test restart 2
 	/**
+	 * Permet de relancer l'application en envoyer le chemin du .jar à supprimer au main lors du redémarrage.
 	 * @throws IOException 
-	 * 
+	 * @author marzilli_g
 	 */
 	public static void relance_moi(String nomPlugin) throws IOException
 	{
@@ -162,95 +163,8 @@ public class GestionPlugin {
 			}
 		}.start();
  
-//		JOptionPane.showMessageDialog(null, "Tchoutchou");
 		System.exit(-1);
  
-	}
-	
-//	//TODO test restart  + suppression
-//	public static final String SUN_JAVA_COMMAND = "sun.java.command";
-//	
-//	public static void restartApplication(Runnable runBeforeRestart) throws IOException {
-//		try {
-//			// java binary
-//			String java = System.getProperty("java.home") + "/bin/java";
-//			// vm arguments
-//			List<String> vmArguments = ManagementFactory.getRuntimeMXBean().getInputArguments();
-//			StringBuffer vmArgsOneLine = new StringBuffer();
-//			for (String arg : vmArguments) {
-//				// if it's the agent argument : we ignore it otherwise the
-//				// address of the old application and the new one will be in conflict
-//				if (!arg.contains("-agentlib")) {
-//					vmArgsOneLine.append(arg);
-//					vmArgsOneLine.append(" ");
-//				}
-//			}
-//			// init the command to execute, add the vm args
-//			final StringBuffer cmd = new StringBuffer("\"" + java + "\" " + vmArgsOneLine);
-//
-//			// program main and program arguments
-//			String[] mainCommand = System.getProperty(SUN_JAVA_COMMAND).split(" ");
-//			// program main is a jar
-//			if (mainCommand[0].endsWith(".jar")) {
-//				// if it's a jar, add -jar mainJar
-//				cmd.append("-jar " + new File(mainCommand[0]).getPath());
-//			} else {
-//				// else it's a .class, add the classpath and mainClass
-//				cmd.append("-cp \"" + System.getProperty("java.class.path") + "\" " + mainCommand[0]);
-//			}
-//			// finally add program arguments
-//			for (int i = 1; i < mainCommand.length; i++) {
-//				cmd.append(" ");
-//				cmd.append(mainCommand[i]);
-//			}
-//			// execute the command in a shutdown hook, to be sure that all the
-//			// resources have been disposed before restarting the application
-//			Runtime.getRuntime().addShutdownHook(new Thread() {
-//				@Override
-//				public void run() {
-//					try {
-//						Runtime.getRuntime().exec(cmd.toString());
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			});
-//			// execute some custom code before restarting
-//			if (runBeforeRestart!= null) {
-//				runBeforeRestart.run();
-//			}
-//			// exit
-//			System.exit(0);
-//		} catch (Exception e) {
-//			// something went wrong
-//			throw new IOException("Error while trying to restart the application", e);
-//		}
-//	}
-	
-	//TODO autre test de restart
-	public static void restartApplication2(String nom) throws URISyntaxException
-	{
-	  final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
-	  final File currentJar = new File(New_vue_Dessin.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-
-	  /* is it a jar file? */
-	  if(!currentJar.getName().endsWith(".jar"))
-	    return;
-
-	  /* Build command: java -jar application.jar */
-	  final ArrayList<String> command = new ArrayList<String>();
-	  command.add(javaBin);
-	  command.add("-jar");
-	  command.add(currentJar.getPath());
-
-	  final ProcessBuilder builder = new ProcessBuilder(command);
-	  try {
-		builder.start();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	  System.exit(0);
 	}
 }
 

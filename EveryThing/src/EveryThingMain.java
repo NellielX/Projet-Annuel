@@ -9,7 +9,10 @@ public class EveryThingMain {
 
 		if (args.length > 0){
 			try {
-				GestionPlugin.deleteFile(args[0]);
+				Thread.sleep(500);
+//				JOptionPane.showMessageDialog(null, "L'application redémarre afin de permettre la suppression du plugin.");
+				controleur.GestionPlugin.deleteFile(args[0]);
+				JOptionPane.showMessageDialog(null, "Le plugin " + args[0] + " à été supprimé avec succès !");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
