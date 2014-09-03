@@ -4,10 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Image;
+import java.awt.Toolkit;
 
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
@@ -43,6 +47,7 @@ import modele.Dessin;
 import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileFilter;
+import java.io.IOException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Set;
@@ -59,8 +64,9 @@ public class New_vue_Dessin extends JFrame {
 	private PanelCalque calques;
 	
 	
-	public New_vue_Dessin() {
+	public New_vue_Dessin() {	
 		setTitle("Everything in your Hands - Dessin");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(".."+ File.separator +".."+ File.separator +"images"+ File.separator +"hand.ico")); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 953, 615);
 		setResizable(false);
