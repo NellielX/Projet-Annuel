@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import modele.Calque;
 import modele.Dessin;
@@ -22,15 +23,27 @@ public class CalqueListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if( ((JButton) e.getSource()).getName() == "Ajouter"){
-			d.ajouterCalque(new Calque(d.getListCalque().size()));
+		if( ((JButton) e.getSource()).getName() == "Ajouter" ){
+			getD().ajouterCalque(new Calque(getD().getListCalque().size()));
+			getD().setIdCalqueCourant(getD().getListCalque().size());
+			getD().majId();
+			JOptionPane.showMessageDialog(null, "Calque ajouté");
+			System.out.println("Calque ajouté");
 		}
-		else if( ((JButton) e.getSource()).getName() == "Supprimer"){
-			for(int i=0;i<d.getListCalque().size();i++){
-				if ( Integer.parseInt( vue.getIdCalqueCourant().getText() ) == d.getListCalque().get(i).getId() ){
-					d.supprimerCalque(d.getListCalque().remove(i));
-					d.majId();
+		else if( ((JButton) e.getSource()).getName() == "Supprimer" ){
+			for(int i=0;i<getD().getListCalque().size();i++){
+				if ( vue.getIdCalqueCourant() == getD().getListCalque().get(i).getId() ){
+					getD().supprimerCalque(getD().getListCalque().remove(i));
+					getD().majId();
+					JOptionPane.showMessageDialog(null, "Calque supprimé");
 				}
+			}
+		}
+		else if( ((JButton) e.getSource()).getName() == "-" ){
+			if(getD().getListCalque().get(vue.getIdCalqueCourant()-1) != null && getD().getListCalque().get(vue.getIdCalqueCourant()-1)!=getD().getListCalque().get(0)){
+				getD().setIdCalqueCourant(vue.getIdCalqueCourant()-1);
+				getD().majId();
+				getVue().setIdCalqueCourant(vue.getIdCalqueCourant()-1);
 			}
 		}
 	}

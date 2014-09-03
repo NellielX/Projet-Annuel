@@ -84,10 +84,10 @@ public class New_vue_Dessin extends JFrame {
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
 					outil.majDessin(d);
 					calques.majDessin(d);
-				    System.out.println("Dessin crée");
+					JOptionPane.showMessageDialog(null, "Dessin crée");
 				}
 				else{
-					System.out.println("Un dessin est en cours. Veuillez quitter avant d'en lancer un nouveau");
+					JOptionPane.showMessageDialog(null, "Un dessin est en cours. Veuillez quitter avant d'en lancer un nouveau");
 				}
 			}
 		});

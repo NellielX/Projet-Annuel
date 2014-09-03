@@ -85,12 +85,20 @@ public class PanelCalque extends JPanel {
 		vue_principale.New_vue_Dessin.panel_pour_calques.revalidate();
 	}
 	
-	public JTextField getIdCalqueCourant() {
+	public JTextField getBtnCalqueCourant() {
 		return idCalqueCourant;
 	}
+	
+	public int getIdCalqueCourant(){
+		return Integer.parseInt(idCalqueCourant.getText());
+	}
+	
+	public void setBtnCalqueCourant(JTextField jtf){
+		this.idCalqueCourant = jtf;
+	}
 
-	public void setIdCalqueCourant(JTextField idCalqueCourant) {
-		this.idCalqueCourant = idCalqueCourant;
+	public void setIdCalqueCourant(int i) {
+		this.idCalqueCourant.setText( String.valueOf(i) );
 	}
 
 	public Dessin getDessin() {
@@ -114,5 +122,6 @@ public class PanelCalque extends JPanel {
 		supprimerCalque.addActionListener(cl);
 		calqueInferieur.addActionListener(cl);
 		calqueSuperieur.addActionListener(cl);
+		setIdCalqueCourant(d.getIdCalqueCourant());
 	}
 }
