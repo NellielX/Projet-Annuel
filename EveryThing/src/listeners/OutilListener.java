@@ -29,12 +29,13 @@ public class OutilListener implements ActionListener{
 		if( ((JButton) e.getSource()).getName() == "ligne"){
 			System.out.println("ligne");
 			Ligne l = new Ligne();
-			System.out.println(d.getIdCalqueCourant());
-			d.getCalqueCourant(d.getIdCalqueCourant()).addForme(l);
-			d.setFormeCourante(l);
+			System.out.println(getD());
+			System.out.println(getD().getIdCalqueCourant());
+			getD().getCalqueCourant(getD().getIdCalqueCourant()).addForme(l);
+			getD().setFormeCourante(l);
 		}
 		else if(e.getSource()==po.getRectangle()){
-			d.getCalqueCourant(d.getIdCalqueCourant()).addForme(new Rectangle());
+			getD().getCalqueCourant(getD().getIdCalqueCourant()).addForme(new Rectangle());
 		}
 	}
 

@@ -22,6 +22,11 @@ public class PanelCalque extends JPanel {
 	
 	private Dessin d;
 	private JTextField idCalqueCourant;
+	private JButton ajouterCalque;
+	private JButton supprimerCalque;
+	private JButton calqueInferieur;
+	private JButton calqueSuperieur;
+	private CalqueListener cl;
 	
 	public PanelCalque(Dessin d){
 		this.d=d;
@@ -39,29 +44,31 @@ public class PanelCalque extends JPanel {
 		
 		BorderLayout bl = new BorderLayout();
 		panel_calques.setLayout(bl);
+		
+		cl = new CalqueListener(this, this.d);
 						
 		//Jbutton ajouterCalque
-		JButton ajouterCalque = new JButton("Ajouter");
+		ajouterCalque = new JButton("Ajouter");
 		ajouterCalque.setPreferredSize(dim);	
-		ajouterCalque.addActionListener(new CalqueListener(this, this.d));
+		ajouterCalque.addActionListener(cl);
 		panel_calques.add(ajouterCalque, BorderLayout.NORTH);
 		
 		//JButton supprimerCalque
-		JButton supprimerCalque = new JButton("Supprimer");
+		supprimerCalque = new JButton("Supprimer");
 		supprimerCalque.setPreferredSize(dim);
-		supprimerCalque.addActionListener(new CalqueListener(this, this.d));
+		supprimerCalque.addActionListener(cl);
 		panel_calques.add(supprimerCalque, BorderLayout.SOUTH);
 		
 		//JButton calqueInferieur
-		JButton calqueInferieur = new JButton("-");
+		calqueInferieur = new JButton("-");
 		calqueInferieur.setPreferredSize(dim2);
-		calqueInferieur.addActionListener(new CalqueListener(this, this.d));
+		calqueInferieur.addActionListener(cl);
 		panel_calques.add(calqueInferieur, BorderLayout.WEST);
 		
 		//JButton calqueSuperieur
-		JButton calqueSuperieur = new JButton("+");
+		calqueSuperieur = new JButton("+");
 		calqueSuperieur.setPreferredSize(dim2);
-		calqueSuperieur.addActionListener(new CalqueListener(this, this.d));
+		calqueSuperieur.addActionListener(cl);
 		panel_calques.add(calqueSuperieur, BorderLayout.EAST);
 		
 		//JTextField idCalqueCourant
@@ -92,5 +99,20 @@ public class PanelCalque extends JPanel {
 
 	public void setDessin(Dessin d) {
 		this.d = d;
+	}
+
+	public void majDessin(Dessin d) {
+		// TODO Auto-generated method stub
+		ajouterCalque.removeActionListener(cl);
+		supprimerCalque.removeActionListener(cl);
+		calqueSuperieur.removeActionListener(cl);
+		calqueInferieur.removeActionListener(cl);
+		cl = null;
+		cl = new CalqueListener(this, this.d);
+		cl.setD(d);
+		ajouterCalque.addActionListener(cl);
+		supprimerCalque.addActionListener(cl);
+		calqueInferieur.addActionListener(cl);
+		calqueSuperieur.addActionListener(cl);
 	}
 }

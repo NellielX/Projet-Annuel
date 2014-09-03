@@ -82,8 +82,8 @@ public class New_vue_Dessin extends JFrame {
 				if(d==null){
 					pde.setBackground(Color.WHITE);
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
-					outil.setDessin(d);
-					calques.setDessin(d);
+					outil.majDessin(d);
+					calques.majDessin(d);
 				    System.out.println("Dessin crée");
 				}
 				else{

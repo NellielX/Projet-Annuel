@@ -21,8 +21,9 @@ import modele.Dessin;
 public class PanelOutil extends JPanel{
 	
 	private Dessin d;
-	private JButton ligne;
-	private JButton rectangle;
+	private JButton btnOutilLigne;
+	private JButton btnOutilRectangle;
+	private OutilListener ol;
 	
 	public PanelOutil(Dessin d){
 		this.d = d;
@@ -41,12 +42,14 @@ public class PanelOutil extends JPanel{
 		gbl_panel_outils.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_panel_outils.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel_outils.setLayout(gbl_panel_outils);
+		
+		ol = new OutilListener(this, this.d);
 						
 		//Jbutton ligne
-		JButton btnOutilLigne = new JButton("Ligne");
+		btnOutilLigne = new JButton("Ligne");
 		btnOutilLigne.setName("ligne");
-		btnOutilLigne.setPreferredSize(dim);	
-		btnOutilLigne.addActionListener(new OutilListener(this, this.d));
+		btnOutilLigne.setPreferredSize(dim);
+		btnOutilLigne.addActionListener(ol);
 		GridBagConstraints gbc_btnOutilLigne = new GridBagConstraints();
 		gbc_btnOutilLigne.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOutilLigne.gridx = 5;
@@ -54,9 +57,9 @@ public class PanelOutil extends JPanel{
 		panel_outils.add(btnOutilLigne, gbc_btnOutilLigne);
 			
 		//Jbutton rectangle
-		JButton btnOutilRectangle = new JButton("Rect.");
+		btnOutilRectangle = new JButton("Rect.");
 		btnOutilRectangle.setPreferredSize(dim);	
-		btnOutilRectangle.addActionListener(new OutilListener(this,this.d));
+		btnOutilRectangle.addActionListener(ol);
 		GridBagConstraints gbc_btnOutilRectangle = new GridBagConstraints();
 		gbc_btnOutilRectangle.insets = new Insets(0, 0, 5, 5);
 		gbc_btnOutilRectangle.gridx = 6;
@@ -69,19 +72,19 @@ public class PanelOutil extends JPanel{
 	}
 
 	public JButton getLigne() {
-		return ligne;
+		return btnOutilLigne;
 	}
 
 	public void setLigne(JButton ligne) {
-		this.ligne = ligne;
+		this.btnOutilLigne = ligne;
 	}
 
 	public JButton getRectangle() {
-		return rectangle;
+		return btnOutilRectangle;
 	}
 
 	public void setRectangle(JButton rectangle) {
-		this.rectangle = rectangle;
+		this.btnOutilRectangle = rectangle;
 	}
 
 	public Dessin getDessin() {
@@ -90,6 +93,16 @@ public class PanelOutil extends JPanel{
 
 	public void setDessin(Dessin d) {
 		this.d = d;
+	}
+	
+	public void majDessin(Dessin d){
+		btnOutilLigne.removeActionListener(ol);
+		ol = null;
+		ol = new OutilListener(this, this.d);
+		ol.setD(d);
+		btnOutilLigne.addActionListener(ol);
+		System.out.println("PanelOutil : Dessin mis a jour");
+		this.revalidate();
 	}
 
 }

@@ -34,6 +34,24 @@ public class CalqueListener implements ActionListener{
 			}
 		}
 	}
+
+	public PanelCalque getVue() {
+		return vue;
+	}
+
+	public void setVue(PanelCalque vue) {
+		this.vue = vue;
+	}
+
+	public Dessin getD() {
+		return d;
+	}
+
+	public void setD(Dessin d) {
+		this.d = d;
+	}
+
+
 	
 	
 	
