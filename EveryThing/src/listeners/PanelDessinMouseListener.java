@@ -1,5 +1,6 @@
 package listeners;
 
+import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Point2D;
@@ -22,12 +23,13 @@ public class PanelDessinMouseListener implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("-"+d.getFormeCourante().toString());
-		if(d.getFormeCourante() != null && e.getClickCount()==1){
+		System.out.println("-"+getD().getFormeCourante().toString());
+		if(getD().getFormeCourante() != null && e.getClickCount()==1){
 			System.out.println((int)e.getX()+" - "+(int)e.getY());
 			Point2D p = null;
 			p.setLocation((int)e.getX(), (int)e.getY());
-			d.getFormeCourante().ajouterPoint(p);
+			getD().getFormeCourante().ajouterPoint(p);
+			getV().paintComponent((Graphics2D)v.getGraphics());
 		}
 	}
 
@@ -56,20 +58,21 @@ public class PanelDessinMouseListener implements MouseListener{
 		System.out.println("Mouse Released");
 	}
 
-	public PanelDessin getView() {
-		return v;
-	}
-
-	public void setView(PanelDessin v) {
-		this.v = v;
-	}
-
-	public Dessin getDraw() {
+	public Dessin getD() {
 		return d;
 	}
 
-	public void setDraw(Dessin d) {
+	public void setD(Dessin d) {
 		this.d = d;
 	}
+
+	public PanelDessin getV() {
+		return v;
+	}
+
+	public void setV(PanelDessin v) {
+		this.v = v;
+	}
+	
 
 }

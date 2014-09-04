@@ -1,6 +1,7 @@
 package modele;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Shape;
 import java.awt.geom.Point2D;
@@ -68,9 +69,8 @@ public abstract class Forme implements Shape{
 		}
 	}
 
-	public void paintComponent(Graphics2D g) {
-		g.create();
-		g.setColor(this.getC1());
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.BLACK);
 	}
 
 }

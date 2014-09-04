@@ -124,4 +124,36 @@ public class PanelCalque extends JPanel {
 		calqueSuperieur.addActionListener(cl);
 		setIdCalqueCourant(d.getIdCalqueCourant());
 	}
+
+	public JButton getAjouterCalque() {
+		return ajouterCalque;
+	}
+
+	public void setAjouterCalque(JButton ajouterCalque) {
+		this.ajouterCalque = ajouterCalque;
+	}
+
+	public JButton getSupprimerCalque() {
+		return supprimerCalque;
+	}
+
+	public void setSupprimerCalque(JButton supprimerCalque) {
+		this.supprimerCalque = supprimerCalque;
+	}
+
+	public JButton getCalqueInferieur() {
+		return calqueInferieur;
+	}
+
+	public void setCalqueInferieur(JButton calqueInferieur) {
+		this.calqueInferieur = calqueInferieur;
+	}
+
+	public JButton getCalqueSuperieur() {
+		return calqueSuperieur;
+	}
+
+	public void setCalqueSuperieur(JButton calqueSuperieur) {
+		this.calqueSuperieur = calqueSuperieur;
+	}
 }

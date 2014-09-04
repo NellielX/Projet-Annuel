@@ -40,11 +40,13 @@ public class Calque extends Area {
 		this.id = id;
 	}
 	
-	public void paint(Graphics2D g) {
+	/*
+	public void paintComponent(Graphics2D g) {
 		for(Forme element : this.getContenuList()){
 			element.paintComponent(g);
 		}
 	}
+	*/
 
 	public Vector<Forme> getContenuList() {
 		return contenuList;
@@ -53,4 +55,5 @@ public class Calque extends Area {
 	public void setContenuList(Vector<Forme> contenuList) {
 		this.contenuList = contenuList;
 	}
+
 }

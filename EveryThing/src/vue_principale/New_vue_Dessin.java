@@ -90,6 +90,7 @@ public class New_vue_Dessin extends JFrame {
 					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
 					outil.majDessin(d);
 					calques.majDessin(d);
+					pde.majDessin(d);
 					JOptionPane.showMessageDialog(null, "Dessin crée");
 				}
 				else{

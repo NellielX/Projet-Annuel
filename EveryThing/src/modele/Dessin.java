@@ -1,5 +1,6 @@
 package modele;
 
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
@@ -26,18 +27,6 @@ public class Dessin extends BufferedImage{
 		idCalqueCourant = 0;
 	}
 
-	public Dessin(ColorModel cm, WritableRaster wr, boolean arg2,
-			Hashtable<?, ?> arg3) {
-		super(cm, wr, arg2, arg3);
-		this.cm = cm;
-		this.wr = wr;
-		listCalque = new Vector<Calque>();
-		Calque calque_ref = new Calque(0);
-		listCalque.add(calque_ref);
-		idCalqueCourant = 0;
-		// TODO Auto-generated constructor stub
-	}
-	
 	public ColorModel getCm() {
 		return cm;
 	}
@@ -83,7 +72,8 @@ public class Dessin extends BufferedImage{
 	}
 	
 	public void supprimerCalque(Calque c) {
-		this.listCalque.remove(c.getId());
+		if(this.listCalque.get(0) != c)
+			this.listCalque.remove(c.getId());
 	}
 	
 	public void majId() {
@@ -93,11 +83,13 @@ public class Dessin extends BufferedImage{
 		}
 	}
 	
-	public void paint(Graphics2D g){
+	/*
+	public void paintComponent(Graphics g){
 		for(Calque element : this.getListCalque()){
-			element.paint(g);
+			element.paintComponent(g);
 		}
 	}
+	*/
 
 	public Calque getCalqueCourant(int idCalqueCourant) {
 		return this.listCalque.elementAt(idCalqueCourant);
