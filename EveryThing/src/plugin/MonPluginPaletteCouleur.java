@@ -44,7 +44,8 @@ public class MonPluginPaletteCouleur implements PluginFunction {
 		btnPinceauGris.setBackground(Color.GRAY);
 		btnPinceauGris.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau gris !");
+				if(vue_principale.New_vue_Dessin.dessin.tabCoordonnees.size() %2 == 0)
+					vue_principale.New_vue_Dessin.dessin.couleurActuelle = Color.GRAY;	
 			}
 		});
 		GridBagConstraints gbc_btnPinceauGris = new GridBagConstraints();
@@ -59,7 +60,8 @@ public class MonPluginPaletteCouleur implements PluginFunction {
 		btnPinceauMarron.setBackground(new Color(139, 69, 19));
 		btnPinceauMarron.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau marron !");
+				if(vue_principale.New_vue_Dessin.dessin.tabCoordonnees.size() %2 == 0)
+					vue_principale.New_vue_Dessin.dessin.couleurActuelle = new Color(139, 69, 19);	
 			}
 		});
 		GridBagConstraints gbc_btnPinceauMarron = new GridBagConstraints();
@@ -74,7 +76,8 @@ public class MonPluginPaletteCouleur implements PluginFunction {
 		btnPinceauCyan.setBackground(new Color(0, 191, 255));
 		btnPinceauCyan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau cyan !");
+				if(vue_principale.New_vue_Dessin.dessin.tabCoordonnees.size() %2 == 0)
+					vue_principale.New_vue_Dessin.dessin.couleurActuelle = Color.CYAN;	
 			}
 		});
 		GridBagConstraints gbc_btnPinceauCyan = new GridBagConstraints();

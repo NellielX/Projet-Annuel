@@ -43,6 +43,7 @@ import java.awt.Insets;
 import javax.swing.JButton;
 
 import modele.Dessin;
+import modele.Dessin2;
 
 import java.awt.SystemColor;
 import java.io.File;
@@ -55,16 +56,19 @@ import java.util.Set;
 public class New_vue_Dessin extends JFrame {
 
 	private Dessin d;
-	private PanelDessin pde;
+//	private PanelDessin pde;
 	private JPanel contentPane;
 	public static JPanel panel_plugin_couleurs = new JPanel();
 	public static JPanel panel_pour_outils = new JPanel();
 	public static JPanel panel_pour_calques = new JPanel();
 	private PanelOutil outil ;
 	private PanelCalque calques;
-	
+	public static final Dessin2 dessin = new modele.Dessin2();
 	
 	public New_vue_Dessin() {	
+		
+		
+		
 		setTitle("Everything in your Hands - Dessin");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(".."+ File.separator +".."+ File.separator +"images"+ File.separator +"hand.ico")); 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -84,17 +88,7 @@ public class New_vue_Dessin extends JFrame {
 		JMenuItem mntmNouveau = new JMenuItem("Nouveau");
 		mntmNouveau.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if(d==null){
-					pde.setBackground(Color.WHITE);
-					d = new Dessin(pde.getWidth(),pde.getHeight(),BufferedImage.TYPE_3BYTE_BGR);
-					outil.majDessin(d);
-					calques.majDessin(d);
-					JOptionPane.showMessageDialog(null, "Dessin crée");
-				}
-				else{
-					JOptionPane.showMessageDialog(null, "Un dessin est en cours. Veuillez quitter avant d'en lancer un nouveau");
-				}
+					dessin.setBackground(Color.WHITE);
 			}
 		});
 		mnMenu.add(mntmNouveau);
@@ -231,11 +225,14 @@ public class New_vue_Dessin extends JFrame {
 		
 		//Jpanel dessin
 		JPanel panel_dessin = new JPanel();
-		pde = new PanelDessin(d);
-		FlowLayout flowLayout = (FlowLayout) pde.getLayout();
+//		pde = new PanelDessin(d);
+		panel_dessin.add(dessin);
+		panel_dessin.addMouseListener(dessin); 
+		
+		FlowLayout flowLayout = (FlowLayout) dessin.getLayout();
 		flowLayout.setVgap(270);
 		flowLayout.setHgap(375);
-		panel_dessin.add(pde);
+		panel_dessin.add(dessin);
 		panel_dessin.setBorder(new LineBorder(new Color(0, 0, 0)));
 		contentPane.add(panel_dessin, BorderLayout.CENTER);
 		
@@ -271,8 +268,9 @@ public class New_vue_Dessin extends JFrame {
 		btnRouge.setBackground(Color.RED);
 		btnRouge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				panel_plugin_couleurs.removeAll();
-				panel_plugin_couleurs.repaint();
+				//dessin.setBackground(Color.red);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.RED;
 			}
 		});
 		GridBagConstraints gbc_btnRouge = new GridBagConstraints();
@@ -287,7 +285,9 @@ public class New_vue_Dessin extends JFrame {
 		btnRose.setBackground(Color.PINK);
 		btnRose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(System.getProperty("java.class.path"));
+				//dessin.setBackground(Color.PINK);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.PINK;
 			}
 		});
 		GridBagConstraints gbc_btnRose = new GridBagConstraints();
@@ -302,6 +302,9 @@ public class New_vue_Dessin extends JFrame {
 		btnBleu.setBackground(Color.BLUE);
 		btnBleu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground(Color.BLUE);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.BLUE;
 			}
 		});
 		GridBagConstraints gbc_btnBleu = new GridBagConstraints();
@@ -316,6 +319,9 @@ public class New_vue_Dessin extends JFrame {
 		btnJaune.setBackground(Color.YELLOW);
 		btnJaune.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground(Color.YELLOW);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.YELLOW;
 			}
 		});
 		GridBagConstraints gbc_btnJaune = new GridBagConstraints();
@@ -330,6 +336,9 @@ public class New_vue_Dessin extends JFrame {
 		btnOrange.setBackground(Color.ORANGE);
 		btnOrange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground(Color.ORANGE);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.ORANGE;
 			}
 		});
 		GridBagConstraints gbc_btnOrange = new GridBagConstraints();
@@ -344,6 +353,9 @@ public class New_vue_Dessin extends JFrame {
 		btnViolet.setBackground(new Color(153, 50, 204));
 		btnViolet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground();
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = new Color(153, 50, 204);
 			}
 		});
 		GridBagConstraints gbc_btnViolet = new GridBagConstraints();
@@ -358,7 +370,9 @@ public class New_vue_Dessin extends JFrame {
 		btnNoir.setBackground(Color.BLACK);
 		btnNoir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "Ceci est un beau pinceau gris !");
+				//dessin.setBackground(Color.BLACK);
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = Color.BLACK;
 			}
 		});
 		GridBagConstraints gbc_btnNoir = new GridBagConstraints();
@@ -373,6 +387,7 @@ public class New_vue_Dessin extends JFrame {
 		btnBlanc.setBackground(Color.WHITE);
 		btnBlanc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground(Color.WHITE);
 			}
 		});
 		GridBagConstraints gbc_btnBlanc = new GridBagConstraints();
@@ -387,6 +402,9 @@ public class New_vue_Dessin extends JFrame {
 		btnVert.setBackground(new Color(154, 205, 50));
 		btnVert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dessin.setBackground(new Color(154, 205, 50));
+				if(dessin.tabCoordonnees.size() %2 == 0)
+					dessin.couleurActuelle = new Color(154, 205, 50);
 			}
 		});
 		GridBagConstraints gbc_btnVert = new GridBagConstraints();
