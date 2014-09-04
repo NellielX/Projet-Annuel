@@ -1,6 +1,5 @@
 package modele;
 
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
@@ -79,8 +78,9 @@ public class Point extends Forme{
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics2D g) {
 		// TODO Auto-generated method stub
+		super.paintComponent(g);
 		g.drawLine(this.getX(), this.getY(), this.getX(), this.getY());
 	}
 

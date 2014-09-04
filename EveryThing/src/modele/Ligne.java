@@ -1,7 +1,6 @@
 package modele;
 
 import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
@@ -127,7 +126,7 @@ public class Ligne extends Forme{
 	}
 
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics2D g) {
 		// TODO Auto-generated method stub
 		g.drawLine((int)getPoint(0).getX(), (int)getPoint(0).getY(), (int)getPoint(1).getX(), (int)getPoint(1).getY());
 	}

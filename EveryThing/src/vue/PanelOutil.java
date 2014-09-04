@@ -103,7 +103,6 @@ public class PanelOutil extends JPanel{
 		btnOutilLigne.addActionListener(ol);
 		System.out.println("PanelOutil : Dessin mis a jour");
 		this.revalidate();
-		this.repaint();
 	}
 
 }
